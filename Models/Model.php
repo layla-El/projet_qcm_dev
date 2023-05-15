@@ -13,7 +13,7 @@ class Model
     private function __construct()
     {  // Fonction qui sert à faire le lien avec la BDD
 
-        $dsn = "mysql:host=localhost;dbname=bdp5";   // Coordonnées de la BDD
+        $dsn = "mysql:host=localhost;dbname=qcm_db";   // Coordonnées de la BDD
         $login = "root";   // Identifiant d'accès à la BDD
         $mdp = ""; // Mot de passe d'accès à la BDD
         $this->bd = new PDO($dsn, $login, $mdp);
@@ -30,5 +30,11 @@ class Model
             self::$instance = new Model();
         }
         return self::$instance;
+    }
+
+    public function get_niveaux() {
+        $r = $this->bd->prepare("SELECT DISTINCT niveau FROM questions order by niveau ");
+        $r->execute() ;
+        return $r->fetchAll(PDO::FETCH_OBJ);
     }
 }
