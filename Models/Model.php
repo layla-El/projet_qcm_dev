@@ -39,9 +39,17 @@ class Model
         return $r->fetchAll(PDO::FETCH_OBJ);
     }
 
-    public function get_niveau_questions() {
-        $r = $this->bd->prepare("SELECT DISTINCT niveau FROM questions order by niveau");
+    public function get_niveau_questions() 
+    {
+        $r = $this->bd->prepare("SELECT DISTINCT niveau FROM questions ORDER BY niveau");
         $r->execute();
         return $r->fetchAll(PDO::FETCH_OBJ);
+    }
+
+    public function get_all_reponses() 
+    {
+        $r = $this->bd->prepare("SELECT * FROM reponses ORDER BY libelle_reponse") ;
+        $r->execute() ;
+        return $r->fetchAll(PDO::FETCH_OBJ) ;
     }
 }
