@@ -3,7 +3,7 @@
     <table class='table table-bordered table-responsive-md bg_table'>
         <thead>
             <tr>
-                <th>Libellé de thème</th>
+                <th>Libellé thème</th>
             </tr>
         </thead>
         <tbody>

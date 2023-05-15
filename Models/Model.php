@@ -21,7 +21,6 @@ class Model
         $this->bd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
 
-
     // get_model()
 
     public static function get_model()
@@ -48,7 +47,7 @@ class Model
 
     public function get_all_reponses() 
     {
-        $r = $this->bd->prepare("SELECT * FROM reponses ORDER BY libelle_reponse") ;
+        $r = $this->bd->prepare("SELECT * FROM reponses ORDER BY id_reponse") ;
         $r->execute() ;
         return $r->fetchAll(PDO::FETCH_OBJ) ;
     }
