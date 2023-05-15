@@ -31,10 +31,17 @@ class Model
         }
         return self::$instance;
     }
+    public function get_home()
+    {
 
-    public function get_niveaux() {
-        $r = $this->bd->prepare("SELECT DISTINCT niveau FROM questions order by niveau ");
-        $r->execute() ;
+        $r = $this->bd->prepare("SELECT * FROM themes ORDER BY libelle_theme");
+        $r->execute();
+        return $r->fetchAll(PDO::FETCH_OBJ);
+    }
+
+    public function get_niveau_questions() {
+        $r = $this->bd->prepare("SELECT DISTINCT niveau FROM questions order by niveau");
+        $r->execute();
         return $r->fetchAll(PDO::FETCH_OBJ);
     }
 }
