@@ -5,18 +5,18 @@
     --blueGreyBg: rgb(69, 69, 98);
     --blueGreyFooter: rgb(48, 48, 106);
     --validateGrey: rgb(97, 97, 126);
-    --purpleShade: rgb(93, 56, 130); 
+    --purpleShade: rgb(93, 56, 130);
 
 }
 
-/* @font-face {
+@font-face {
     font-family: 'sk_femme_fataleregular';
     src: url('sk_femme_fatale_regular-webfont.woff2') format('woff2'),
-         url('sk_femme_fatale_regular-webfont.woff') format('woff'),
-         url('sk_Femme_fatale_Regular.ttf') format('truetype');
+        url('sk_femme_fatale_regular-webfont.woff') format('woff'),
+        url('sk_Femme_fatale_Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
-} */
+}
 
 body {
     margin: 0;
@@ -29,7 +29,8 @@ body {
     background-attachment: fixed;
     background-position: center center;
 }
-a{
+
+a {
     text-decoration: none;
     color: var(--textColor);
 }
@@ -46,14 +47,8 @@ h1 {
     text-transform: uppercase;
 }
 
-header>div>p {
-    font-size: 10px;
-    margin: 0;
-}
-
 header {
     display: flex;
-    flex-direction: column;
     align-items: flex-start;
     justify-content: center;
     background: linear-gradient(var(--purpleShade), rgba(0, 0, 255, 0));
@@ -72,20 +67,19 @@ header {
 
 /* MAIN */
 
-main {
+#mainIndex {
     display: flex;
     flex-direction: column;
     gap: 4em;
-    margin-bottom: 50px;
 }
 
-main>div {
+#mainIndex>div {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-main>div>a>p{
+main>div>a>p {
     text-align: center;
 }
 
@@ -111,6 +105,54 @@ img {
 }
 
 
+
+
+
+/* NIVEAUX */
+
+/* HTML */
+
+#mainHtml {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 4em;
+    padding-top: 9em;
+}
+
+
+/* QUESTIONS */
+
+.choix {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+}
+
+.choix input {
+    border-radius: 5px;
+    background-color: var(--blueGreyBg);
+    color: var(--textColor);
+    border: none;
+    width: 24em;
+    min-height: 3em;
+}
+
+.choix a {
+    cursor: pointer !important;
+}
+
+.questions{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
 
 
