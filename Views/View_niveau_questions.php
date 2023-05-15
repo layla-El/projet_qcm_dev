@@ -2,5 +2,4 @@
                 <tr>
                     <td> <?= $n->niveau ?></td>
                 </tr>
-
             <?php endforeach; ?>
