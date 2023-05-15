@@ -1,5 +1,6 @@
 <!-- MAIN -->
 
+<div class="container">
 <main>
             <h1>Welcome</h1>
 
@@ -27,3 +28,4 @@
             <div>
             </div>
         </main>
+        </div>
