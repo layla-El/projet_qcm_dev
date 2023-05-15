@@ -9,14 +9,14 @@
 
 }
 
-@font-face {
+/* @font-face {
     font-family: 'sk_femme_fataleregular';
     src: url('sk_femme_fatale_regular-webfont.woff2') format('woff2'),
          url('sk_femme_fatale_regular-webfont.woff') format('woff'),
          url('sk_Femme_fatale_Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
-}
+} */
 
 body {
     margin: 0;
