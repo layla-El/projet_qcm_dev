@@ -23,7 +23,7 @@ body {
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
     color: var(--textColor);
-    background-image: url("../images/bgMobile.png");
+    background-image: url("bgMobile.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
