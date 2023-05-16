@@ -1,7 +1,9 @@
      <!-- MAIN -->
 
      <div class="container">
-         <main id="mainHtml">
+
+         <main id="mainNiveaux">
+             <h1>Titre du langage...</h1>
 
              <div> <a href="">
                      <div class="categories"><img src="images/star.png" alt="image white star"></div>
