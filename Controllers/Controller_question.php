@@ -24,4 +24,5 @@ $data=["niveaux"=>$m->get_niveau_questions(),
 "id_theme"=>$id_theme];
 $this->render("niveau_questions",$data);
  }
+ 
 }
