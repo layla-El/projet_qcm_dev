@@ -39,9 +39,10 @@ class Model
 
     public function get_home()
     {
-
-        $r = $this->bd->prepare("SELECT * FROM themes ORDER BY libelle_theme");
+        $r = $this->bd->prepare("SELECT libelle_theme, image_theme FROM themes ORDER BY libelle_theme");
         $r->execute();
+        // $r = $this->bd->prepare("SELECT * FROM themes ORDER BY libelle_theme");
+        // $r->execute();
 
         return $r->fetchAll(PDO::FETCH_OBJ);
     }

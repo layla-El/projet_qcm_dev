@@ -1,17 +1,22 @@
-<br />
-<tbody>
-    <table class='table table-bordered table-responsive-md bg_table'>
-        <thead>
-            <tr>
-                <th>Libellé de thème</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($data["themes"] as $theme) : ?>
-                <tr>
-                    <td> <?= $theme->libelle_theme ?></td>
-                </tr>
+<div class="container">
+    <main>
+        <h1>Welcome</h1>
+        <?php
+        $themes = $data["themes"]; //
 
-            <?php endforeach; ?>
-        </tbody>
-    </table>
+        foreach ($themes as $theme) : ?>
+
+
+            <div>
+                <a href="">
+                    <div class="categories"><img src="Content/images/<?= $theme->image_theme ?>" alt=""></div>
+                    <p><?= $theme->libelle_theme ?></p>
+
+                </a>
+            </div>
+
+        <?php endforeach; ?>
+
+
+    </main>
+</div>

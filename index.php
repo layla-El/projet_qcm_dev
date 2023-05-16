@@ -17,6 +17,7 @@
     $controllers = ["home"];
     $controller_default = "home";
 
+
     if (isset($_GET['controller']) and in_array($_GET['controller'], $controllers)) {
         $nom_controller = $_GET['controller'];
     } else {
