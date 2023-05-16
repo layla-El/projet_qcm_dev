@@ -1,12 +1,34 @@
 <!-- MAIN -->
 
-
 <div class="container">
+    <main>
+        <h1>Welcome</h1>
+        <?php
+        $themes = $data["themes"]; //
+
+        foreach ($themes as $theme) : ?>
+
+
+            <div>
+                <a href="">
+                    <div class="categories"><img src="Content/images/<?= $theme->image_theme ?>" alt=""></div>
+                    <p><?= $theme->libelle_theme ?></p>
+
+                </a>
+            </div>
+
+        <?php endforeach; ?>
+
+
+    </main>
+</div>
+
+<!-- <div class="container">
     
     <main id="mainIndex">
         <h1>Welcome</h1>
 
-        <!-- comment mettre ça en hover -->
+         comment mettre ça en hover 
         <div> <a href="pageHtml.html">
                 <div class="categories"><img src="../Content/star.png" alt=""></div>
                 <p>HTML</p>
@@ -29,10 +51,10 @@
             </a>
         </div>
 
-        <!-- DIV TRICHE -->
+        DIV TRICHE 
         <div></div>
         <div></div>
 
-    </main>
+    </main> -->
 
 </div>
