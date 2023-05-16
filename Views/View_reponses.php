@@ -1,5 +1,6 @@
-<?php foreach ($data["reponses"] as $r) : ?>
+<?php 
+foreach ($data["reponses"] as $key => $r) : ?>
                 <tr>
-                    <td> <?= $r->libelle_reponse?></td>
+                    <td> <?= htmlentities($r->libelle_reponse)?></td>
                 </tr>
             <?php endforeach; ?>
