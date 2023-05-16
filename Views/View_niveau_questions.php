@@ -1,28 +1,24 @@
-<!-- <?php foreach ($data["niveaux"] as $n) : ?>
-                <tr>
-                    <td> <?= $n->niveau ?></td>
-                </tr>
-            <?php endforeach; ?> -->
-            <div class="container">
-
 <main id="mainNiveaux">
-    <h1>Titre du langage...</h1>
+<?php
+        foreach ($themes as $theme) : ?>
+    <h1><?=$theme->libelle_theme?></h1>
+    <?php endforeach; ?>
+    <?php
+    $imageMapping = [
+        "Débutant" => "star",
+        "Intermédiaire" => "square",
+        "Avancé" => "polygon"
+    ];
 
-    <div> <a href="">
-            <div class="categories"><img src="Content/star.png" alt="image white star"></div>
-            <p>Débutant</p>
-        </a>
-    </div>
-    <div><a href="">
-            <div class="categories"><img src="Content/square.png" alt="image white square"></div>
-            <p>Intermédiaire</p>
-        </a>
-    </div>
-    <div><a href="">
-            <div class="categories"><img src="Content/polygon.png" alt="image white polygon"></div>
-            <p>Avancé</p>
-        </a>
-    </div>
+    ?>
 
+    <?php foreach ($data["niveaux"] as $n) : ?>
+        <div>
+            <a href="?controller=question&action=question&id_theme=<?=$data['id_theme']?>&niveau=<?=$n?>">
+                <div class="categories"><img src="Content/<?= $imageMapping[$n->niveau] ?>.png" alt="image"></div>
+                <p><?php echo $n->niveau; ?></p>
+            </a>
+        </div>
+    <?php endforeach; ?>
 </main>
 </div>

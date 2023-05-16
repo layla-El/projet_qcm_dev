@@ -112,7 +112,7 @@ img {
 
 /* HTML */
 
-#mainHtml {
+#mainNiveaux {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
