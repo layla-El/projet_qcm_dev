@@ -1,31 +1,17 @@
-<!-- MAIN -->
-
-<div class="container">
-<main>
-            <h1>Welcome</h1>
-
-            <div> <a href="pageHtml.html">
-                    <div class="categories"><img src="images/star.png" alt=""></div>
-                    <p>HTML</p>
-                </a>
-            </div>
-
-            <div><a href="pageHtml.html">
-                    <div class="categories"><img src="images/square.png" alt=""></div>
-                    <p>CSS</p>
-                </a>
-            </div>
-            <div><a href="pageHtml.html">
-                    <div class="categories"><img src="images/polygon.png" alt=""></div>
-                    <p>JS</p>
-                </a>
-            </div>
-            <div><a href="pageHtml.html">
-                    <div class="categories"><img src="images/circle.png" alt=""></div>
-                    <p>PHP</p>
-                </a>
-            </div>
-            <div>
-            </div>
-        </main>
-        </div>
+<h4>Connexion</h4>
+<div  class="center-form">
+    <form   action="?controller=login&action=login" method="post" >
+        
+                <label for="email"></label>
+                <input type="email" id="email" name="email" placeholder="<?= $_SESSION["error"]["lastEmail"] ?? "" ?>"/>
+            
+                <label for="password"></label>
+                <input type="password" id="password" name="password" placeholder="Mot de passe" />
+            
+                <label for="submit"></label>
+                <input type="submit" id="submit" name="submit" placeholder="Connexion" />
+                
+                <a id="sign_up" href="?controller=home&action=sign_up">Inscrivez-vous</a>
+            
+    </form>
+</div>

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Index</title>
+    <title>Qcm</title>
     <link rel="stylesheet" type="text/css" href="Content/style.css">
 </head>
 
