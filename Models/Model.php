@@ -36,14 +36,22 @@ class Model
         $r->execute();
         return $r->fetchAll(PDO::FETCH_OBJ);
     }
+   
+    public function get_niveau_questions()
+{
+    $r = $this->bd->prepare("SELECT DISTINCT niveau FROM questions ORDER BY niveau");
+    $r->execute();
+    return $r->fetchAll(PDO::FETCH_OBJ);
+}
 
-    public function get_niveau_questions() 
-    {
-        $r = $this->bd->prepare("SELECT DISTINCT niveau FROM questions ORDER BY niveau");
-        $r->execute();
-        return $r->fetchAll(PDO::FETCH_OBJ);
-    }
-
+public function get_theme_libelle($libelle_theme)
+{
+    $r = $this->bd->prepare("SELECT libelle_theme FROM themes WHERE id_theme = :id_theme");
+    $r->bindParam(":id_theme", $libelle_theme);
+    $r->execute();
+    return $r->fetch(PDO::FETCH_OBJ);
+}
+    
     public function get_question($id_theme, $niveau)
     {
         $r = $this->bd->prepare("SELECT * FROM questions WHERE id_theme = :theme_id AND niveau = :level ORDER BY RAND() LIMIT 10");
