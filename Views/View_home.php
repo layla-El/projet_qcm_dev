@@ -6,7 +6,7 @@
 
         foreach ($data["themes"] as $theme) : ?>
             <div>
-                <a href="?controller=question&action=niveau_question&id_theme=<?= $theme->id_theme ?>">
+                <a href="?controller=question&action=niveau_question&id_theme=<?=$theme->id_theme ?>">
                     <div class="categories"><img src="Content/images/<?= $theme->image_theme ?>" alt=""></div>
                     <p><?= $theme->libelle_theme ?></p>
                 </a>

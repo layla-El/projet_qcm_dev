@@ -44,6 +44,16 @@ class Model
         return $r->fetchAll(PDO::FETCH_OBJ);
     }
 
+    public function get_question($id_theme, $niveau)
+    {
+        $r = $this->bd->prepare("SELECT * FROM questions WHERE id_theme = :theme_id AND niveau = :level ORDER BY RAND() LIMIT 10");
+        $r->bindParam(":theme_id", $id_theme);
+        $r->bindParam(":level", $niveau);
+        $r->execute();
+
+        return $r->fetchAll(PDO::FETCH_OBJ);
+    }
+
     public function get_all_reponses() 
     {
         $r = $this->bd->prepare("SELECT * FROM reponses ORDER BY id_reponse") ;
