@@ -7,17 +7,16 @@
     <main id="mainQuestions">
 
         <h1>Theme..</h1>
-
         <h3>Titre de la question...</h3>
 
         <form id="formChoix">
 
             <div class="choix">
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio neque itaque, libero aliquid sapiente impedit consequuntur magnam sequi error reiciendis obcaecati, laudantium magni id autem nulla atque omnis ipsa et.</p>
+                <p>"em" est relative à la taille de police de caractères de l'élément racine, tandis que "rem" est absolue et ne change pas avec la taille de police de caractères de l'élément racine.</p>
             </div>
 
             <div class="ButtonSubmitDiv">
-                <button type="submit" class="btnSubmit">Valider</button>
+                <button type="submit" class="btnSubmit">VALIDER</button>
             </div>
 
         </form>
