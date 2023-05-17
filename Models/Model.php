@@ -30,6 +30,9 @@ class Model
         }
         return self::$instance;
     }
+
+    // THEMES //
+
     public function get_home()
     {
         $r = $this->bd->prepare("SELECT id_theme, libelle_theme, image_theme FROM themes ORDER BY libelle_theme");
@@ -37,6 +40,9 @@ class Model
         return $r->fetchAll(PDO::FETCH_OBJ);
     }
    
+
+    // NIVEAUX //
+    
     public function get_niveau_questions()
 {
     $r = $this->bd->prepare("SELECT DISTINCT niveau FROM questions ORDER BY niveau");

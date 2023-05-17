@@ -1,5 +1,5 @@
 <div class="container">
-    <main>
+    <main id= "mainIndex">
         <h1>Welcome</h1>
         <?php
 
@@ -13,7 +13,10 @@
             </div>
 
         <?php endforeach; ?>
-
+        
+        <!-- DIV TRICHE -->
+<div></div>
+<div></div>
 
     </main>
 </div>

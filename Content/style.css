@@ -23,7 +23,7 @@ body {
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
     color: var(--textColor);
-    background-image: url("../Content/bgMobile.png");
+    background-image: url("images/bgMobile.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -65,7 +65,7 @@ header {
 
 
 
-/* MAIN */
+/* HOME */
 
 #mainIndex {
     display: flex;
@@ -110,7 +110,6 @@ img {
 
 /* NIVEAUX */
 
-/* HTML */
 
 #mainNiveaux {
     display: flex;
@@ -118,13 +117,22 @@ img {
     justify-content: center;
     align-items: center;
     gap: 4em;
-    padding-top: 9em;
 }
+
+
 
 
 /* QUESTIONS */
 
-.choix {
+
+.mainQuestions{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.formChoix {
     padding: 0;
     margin: 0;
     display: flex;
@@ -134,7 +142,7 @@ img {
     gap: 1em;
 }
 
-.choix input {
+.choix {
     border-radius: 5px;
     background-color: var(--blueGreyBg);
     color: var(--textColor);
@@ -142,18 +150,6 @@ img {
     width: 24em;
     min-height: 3em;
 }
-
-.choix a {
-    cursor: pointer !important;
-}
-
-.questions{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
 
 
 
