@@ -38,7 +38,7 @@ class Controller_question extends Controller
         // "niveau"=> $niveau,
         "id_theme" => $id_theme
     ];
-    $this->render("niveau_questions", $data);
+    $this->render("niveau", $data);
 }
 
 

@@ -4,3 +4,5 @@ foreach ($data["reponses"] as $key => $r) : ?>
                     <td> <?= htmlentities($r->libelle_reponse)?></td>
                 </tr>
             <?php endforeach; ?>
+
+            
