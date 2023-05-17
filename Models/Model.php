@@ -36,13 +36,16 @@ class Model
     {
         $email = $_POST['email'];
         $password = $_POST['password'];
+
         $r = $this->bd->prepare("SELECT * FROM utilisateurs WHERE email=:email");
         $r->bindParam(':email', $email);
         $r->execute();
+        
         if ($r->rowCount() > 0) {
             //* L'utilisateur existe, on vérifie le mot de passe
             $user = $r->fetch(PDO::FETCH_OBJ);
             $hashed_password = $user->mdp;
+
             if (password_verify($password, $hashed_password)) {
                 //* Le mot de passe correspond au mot de passe hashé de la DB, on return l'objet user
                 return $user;

@@ -8,27 +8,35 @@ class Controller_login extends Controller
     }
     public function action_home()
     {
+        $this->render("home");
+    }
+    public function action_login()
+    {
+        $m = Model::get_model();
         if (isset($_POST['submit'])) {
-            $m = Model::get_model();
             $user = $m->get_login_user();
-
-            if ($user !== null) {
+            
+            
+            if ($user) {
                 $nom = $user->nom;
                 $prenom = $user->prenom;
-                $roles = $user->role;
+                $role = $user->role;
 
                 $_SESSION['name'] = $nom;
                 $_SESSION['prenom'] = $prenom;
-                $_SESSION['roles'] = $roles;
+                $_SESSION['role'] = $role;
+                var_dump($user);
+          
 
-                if ($_SESSION['roles'] === "0") {
+                if ($_SESSION['role'] === 0) {
                     header('Location: User/?controller=home&action=home');
+                    var_dump($_SESSION['role']);
                 }
             } else {
                 //! Les identifiants de connexion sont incorrects
                 header('Location: ?controller=home&action=home');
             }
-            die("Aucun utilisateur trouvé");
+            // die("Aucun utilisateur trouvé");
         }
 
     }

@@ -46,7 +46,7 @@ class Controller_sign_up extends Controller
             $email = trim($email);
             $password = trim(htmlspecialchars($password));
 
-        
+
             $m = Model::get_model();
             $m->get_sign_up_user($nom, $prenom, $email, $hashed_password);
             $this->render("home");

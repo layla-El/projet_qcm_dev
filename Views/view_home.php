@@ -1,4 +1,4 @@
-<h4>Connexion</h4>
+<h1>Connexion</h1>
 <div  class="center-form">
     <form   action="?controller=login&action=login" method="post" >
         

@@ -3,19 +3,17 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Qcm</title>
+    <title>Index</title>
     <link rel="stylesheet" type="text/css" href="Content/style.css">
 </head>
 
 <body>
     <?php
-    
     session_start();
     require_once 'Controllers/Controller.php';
     require_once 'Models/Model.php';
 
-
-    $controllers = ["home", "login", "sign_up"];
+    $controllers = ["home",];
     $controller_default = "home";
 
     if (isset($_GET['controller']) and in_array($_GET['controller'], $controllers)) {
@@ -36,7 +34,6 @@
 
     require_once 'Utils/footer.php';
     ?>
-    
 </body>
 
 </html>
