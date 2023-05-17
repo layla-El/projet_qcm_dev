@@ -6,25 +6,21 @@
 
     <main id="mainQuestions">
 
-        <h1>HTML</h1>
-        <h3><?php echo $question['texte']; ?></h3>
+        <h1>Theme..</h1>
+
+        <h3>Titre de la question...</h3>
 
         <form id="formChoix">
 
-            <?php foreach ($reponses['choix'] as $reponse) : ?>
+            <div class="choix">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio neque itaque, libero aliquid sapiente impedit consequuntur magnam sequi error reiciendis obcaecati, laudantium magni id autem nulla atque omnis ipsa et.</p>
+            </div>
 
-                <div class="choix" onclick="selectChoice(this)">
-                    <?php echo $choix['texte']; ?>
-                </div>
+            <div class="ButtonSubmitDiv">
+                <button type="submit" class="btnSubmit">Valider</button>
+            </div>
 
-            <?php endforeach; ?>
-
-            <input type="buttonSubmit" value="Suivant" onclick="submitForm()">
         </form>
 
     </main>
 </div>
-
-</body>
-
-</html>

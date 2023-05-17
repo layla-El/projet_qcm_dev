@@ -14,8 +14,10 @@ class Controller_question extends Controller
 		$id_theme = $_GET['id_theme'];
 		$niveau = $_GET['niveau'];
 		$m = Model::get_model();
+	
 		$data = [
-			"questions" => $m->get_question($id_theme, $niveau)
+			"questions" => $m->get_question($id_theme, $niveau),
+			
 		];
 
 		$this->render("question", $data);
@@ -33,6 +35,6 @@ class Controller_question extends Controller
 			"libelle_theme" => $libelle_theme,
 			"id_theme" => $id_theme
 		];
-		$this->render("niveau_questions", $data);
+		$this->render("niveau", $data);
 	}
 }
