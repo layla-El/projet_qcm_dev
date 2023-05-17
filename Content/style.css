@@ -6,6 +6,7 @@
     --blueGreyFooter: rgb(48, 48, 106);
     --validateGrey: rgb(97, 97, 126);
     --purpleShade: rgb(93, 56, 130);
+    --fadeGreen: rgba(26, 87, 37, 0.606);
 
 }
 
@@ -172,7 +173,17 @@ img {
     border: none;
     color: var(--textColor);
 }
-
+#chargingBar{
+    width: 100%;
+    height: 10px;
+    background-color: var(--fadeGreen);
+}
+#chargingMove{
+    border-radius: 5px;
+    width: 20%;
+    height: 9px;
+    background-color: var(--validateGreen);
+}
 
 
 /* FOOTER */

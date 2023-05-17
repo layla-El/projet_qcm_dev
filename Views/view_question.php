@@ -3,7 +3,7 @@
 
 
 <div class="container">
-
+<div id="chargingBar"><div id="chargingMove"></div>
     <main id="mainQuestions">
 
         <h1>Theme..</h1>
