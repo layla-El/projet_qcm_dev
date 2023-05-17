@@ -16,16 +16,10 @@ class Model
         $dsn = "mysql:host=localhost;dbname=qcm_db";   // Coordonnées de la BDD
         $login = "root";   // Identifiant d'accès à la BDD
         $mdp = ""; // Mot de passe d'accès à la BDD
-        try {
-            $this->bd = new PDO($dsn, $login, $mdp);
-            $this->bd->query("SET NAMES 'utf8'");
-            $this->bd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        } catch (PDOException $e) {
-            echo "erreur de se connecter à la base:" . $e->getMessage();
-        }
+        $this->bd = new PDO($dsn, $login, $mdp);
+        $this->bd->query("SET NAMES 'utf8'");
+        $this->bd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
-
-
 
     // get_model()
 
@@ -37,13 +31,50 @@ class Model
         return self::$instance;
     }
 
+
+    // THEMES //
+
     public function get_home()
     {
-        $r = $this->bd->prepare("SELECT libelle_theme, image_theme FROM themes ORDER BY libelle_theme");
+        $r = $this->bd->prepare("SELECT id_theme, libelle_theme, image_theme FROM themes ORDER BY libelle_theme");
         $r->execute();
-        // $r = $this->bd->prepare("SELECT * FROM themes ORDER BY libelle_theme");
-        // $r->execute();
+        return $r->fetchAll(PDO::FETCH_OBJ);
+    }
+
+
+
+    // NIVEAUX //
+
+    public function get_niveau_questions() 
+    {
+        $r = $this->bd->prepare("SELECT DISTINCT niveau FROM questions ORDER BY niveau");
+        $r->execute();
+        return $r->fetchAll(PDO::FETCH_OBJ);
+    }
+
+
+
+    // QUESTIONS //
+
+    public function get_question($id_theme, $niveau)
+    {
+        $r = $this->bd->prepare("SELECT * FROM questions WHERE id_theme = :theme_id AND niveau = :level ORDER BY RAND() LIMIT 10");
+        $r->bindParam(":theme_id", $id_theme);
+        $r->bindParam(":level", $niveau);
+        $r->execute();
 
         return $r->fetchAll(PDO::FETCH_OBJ);
+    }
+
+
+    
+
+    // REPONSES //
+
+    public function get_all_reponses() 
+    {
+        $r = $this->bd->prepare("SELECT * FROM reponses ORDER BY id_reponse") ;
+        $r->execute() ;
+        return $r->fetchAll(PDO::FETCH_OBJ) ;
     }
 }
