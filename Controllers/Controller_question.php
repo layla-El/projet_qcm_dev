@@ -25,10 +25,12 @@ class Controller_question extends Controller
 
 	public function action_niveau_question()
 	{
-		$id_theme = $_GET["id_theme"];
 		$m = Model::get_model();
+		$id_theme = $_GET["id_theme"];
+		$libelle_theme = $m->get_theme_libelle($id_theme);
 		$data = [
 			"niveaux" => $m->get_niveau_questions(),
+			"libelle_theme" => $libelle_theme,
 			"id_theme" => $id_theme
 		];
 		$this->render("niveau_questions", $data);

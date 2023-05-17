@@ -17,6 +17,7 @@ abstract class Controller
 
     protected function render($vue, $data = [])
     {
+        extract($data);
         $file_name = "Views/view_" . $vue . ".php";
         if (file_exists($file_name)) {
             require($file_name);

@@ -1,30 +1,28 @@
+<!-- MAIN -->
 <!-- QUESTIONS -->
 
 
 <div class="container">
 
-    <div class="questions">
+    <main id="mainQuestions">
 
         <h1>HTML</h1>
-        <p>Contenu de la question 1...</p>
+        <h3><?php echo $question['texte']; ?></h3>
 
-        <form class="choix">
+        <form id="formChoix">
 
-            <a href="#">
-                <label for="q1_choix1">
-                    <input type="button" id="" name="question1" value="">
-                </label>
-            </a>
+            <?php foreach ($reponses['choix'] as $reponse) : ?>
 
-            <a href="#">
-                <label for="q1_choix4">
-                    <input type="button" id="q1_choix4" name="question1" value="choix4">
-                </label>
-            </a> 
+                <div class="choix" onclick="selectChoice(this)">
+                    <?php echo $choix['texte']; ?>
+                </div>
 
+            <?php endforeach; ?>
+
+            <input type="buttonSubmit" value="Suivant" onclick="submitForm()">
         </form>
 
-    </div>
+    </main>
 </div>
 
 </body>

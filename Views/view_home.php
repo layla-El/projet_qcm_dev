@@ -1,4 +1,5 @@
 <!-- MAIN -->
+  <!-- HOME -->
 
 <div class="container">
 
@@ -11,7 +12,7 @@
 
 
             <div>
-                <a href="?controller=question&action=niveau_question">
+                <a href="?controller=question&action=niveau_question&id_theme=<?= $theme->id_theme ?>">
                     <div class="categories"><img src="Content/images/<?= $theme->image_theme ?>" alt="white geometrical item"></div>
                     <p><?= $theme->libelle_theme ?></p>
                 </a>

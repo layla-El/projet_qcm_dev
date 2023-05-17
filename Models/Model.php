@@ -51,7 +51,14 @@ class Model
         $r->execute();
         return $r->fetchAll(PDO::FETCH_OBJ);
     }
-
+    
+    public function get_theme_libelle($libelle_theme)
+    {
+        $r = $this->bd->prepare("SELECT libelle_theme FROM themes WHERE id_theme = :id_theme");
+        $r->bindParam(":id_theme", $libelle_theme);
+        $r->execute();
+        return $r->fetch(PDO::FETCH_OBJ);
+    }
 
 
     // QUESTIONS //
@@ -65,6 +72,7 @@ class Model
 
         return $r->fetchAll(PDO::FETCH_OBJ);
     }
+
 
 
     
