@@ -20,18 +20,24 @@ class Controller_question extends Controller
         $this->render("niveau", $data);
     }
 
-	public function action_question()
+    public function action_question()
     {
         $id_theme = $_GET['id_theme'];
         $niveau = $_GET['niveau'];
-        $libelle_reponse = $m->get_all_reponses($id_reponse);
         $m = Model::get_model();
+        $questions = $m->get_question($id_theme, $niveau);
+    
+        $reponses = array();
+        foreach ($questions as $question) {
+            $libelle_reponse = $question->libelle_reponse;
+            $reponses[$libelle_reponse] = $m->get_all_reponses($libelle_reponse);
+        }
+    
         $data = [
-            "questions" => $m->get_question($id_theme, $niveau),
-            "reponses" => $libelle_reponse
+            "questions" => $questions,
+            "reponses" => $reponses
         ];
         $this->render("question", $data);
     }
 
- 
 }

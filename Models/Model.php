@@ -71,10 +71,10 @@ public function get_question($id_theme, $niveau)
 
     // REPONSES//
 
-    public function get_all_reponses($id_reponse)
+    public function get_all_reponses($libelle_reponse)
     {
-        $r = $this->bd->prepare("SELECT libelle_reponse FROM reponses WHERE id_reponse = :id_reponse");
-        $r->bindParam(":id_reponse", $id_reponse);
+        $r = $this->bd->prepare("SELECT * FROM reponses WHERE libelle_reponse = :libelle_reponse ORDER BY id_reponse");
+        $r->bindParam(":libelle_reponse", $libelle_reponse);
         $r->execute();
         return $r->fetchAll(PDO::FETCH_OBJ);
     }
