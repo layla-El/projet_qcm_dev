@@ -21,7 +21,6 @@ class Model
         $this->bd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
 
-    // get_model()
 
     public static function get_model()
     {    // Fonction qui sert à créer une instance de Model pour l'appeler dans chaque Controller (équivalent de $connex)
@@ -57,21 +56,27 @@ public function get_theme_libelle($libelle_theme)
     $r->execute();
     return $r->fetch(PDO::FETCH_OBJ);
 }
-    
-    public function get_question($id_theme, $niveau)
-    {
-        $r = $this->bd->prepare("SELECT * FROM questions WHERE id_theme = :theme_id AND niveau = :level ORDER BY RAND() LIMIT 10");
-        $r->bindParam(":theme_id", $id_theme);
-        $r->bindParam(":level", $niveau);
-        $r->execute();
 
+    // QUESTONS //
+    
+public function get_question($id_theme, $niveau)
+{
+    $r = $this->bd->prepare("SELECT * FROM questions WHERE id_theme = :theme_id AND niveau = :level ORDER BY RAND() LIMIT 10");
+    $r->bindParam(":theme_id", $id_theme);
+    $r->bindParam(":level", $niveau);
+    $r->execute();
+
+    return $r->fetchAll(PDO::FETCH_OBJ);
+}
+
+    // REPONSES//
+
+    public function get_all_reponses($id_reponse)
+    {
+        $r = $this->bd->prepare("SELECT libelle_reponse FROM reponses WHERE id_reponse = :id_reponse");
+        $r->bindParam(":id_reponse", $id_reponse);
+        $r->execute();
         return $r->fetchAll(PDO::FETCH_OBJ);
     }
-
-    public function get_all_reponses() 
-    {
-        $r = $this->bd->prepare("SELECT * FROM reponses ORDER BY id_reponse") ;
-        $r->execute() ;
-        return $r->fetchAll(PDO::FETCH_OBJ) ;
-    }
+    
 }
