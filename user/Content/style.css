@@ -160,9 +160,6 @@ img {
     width: 90vw;
     font-size: 13px;
 }
-.choix>p{
-
-}
 
 .btnSubmit {
     border-radius: 15px;
@@ -232,7 +229,7 @@ footer>div>a>p {
 
   /* ELIESSE */
 .choix>input{
-    text-align: left;
+    
 }
 
 input {

@@ -1,21 +1,39 @@
-<h1> Inscription</h1>
-<div class="center-form" >
-    <form  action="?controller=sign_up&action=insert_user" method="post" >
-        
-                <label for="nom"></label>
-                <input type="text" id="inom" name="nom" placeholder="Nom"required />
-              
-                <label for="prenom"></label>
+<!-- MAIN -->
+<!-- INSCRIPTION -->
+
+<div class="container">
+    <main>
+
+
+        <h1> Inscription</h1>
+
+        <form id="connexionForm" action="?controller=sign_up&action=insert_user" method="post">
+
+            <div class="choix">
+                <input type="text" id="inom" name="nom" placeholder="Nom" required />
+            </div>
+
+            <div class="choix">
                 <input type="text" id="iprenom" name="prenom" placeholder="Prénom" required />
-                
-                <label for="email"></label>
+            </div>
+
+            <div class="choix">
                 <input type="email" id="imail" name="email" placeholder="Email" required />
-                
-                <label for="password"></label>
+            </div>
+
+            <div class="choix">
                 <input type="password" id="ipassword" name="password" placeholder="mot de passe" required />
-                
-                <input type="submit" id="submit" name="submit" placeholder="S'inscrire" />
-                <a href="?controller=sign_up&action=home">Retour à la connexion ? </a>
-            
-    </form>
+            </div>
+
+            <div class="ButtonSubmitDiv">
+                <button type="submit" id="submit" name="submit" class="btnSubmit">INSCRIPTION</button>
+            </div>
+
+            <div class="ButtonSubmitDiv">
+                <button type="submit" id="sign_up" name="submit" class="btnSubmit"><a href="?controller=sign_up&action=home">Retour à la connexion ? </a></button>
+            </div>
+
+        </form>
+
+    </main>
 </div>

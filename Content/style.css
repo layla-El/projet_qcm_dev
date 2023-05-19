@@ -149,20 +149,6 @@ img {
     gap: 1em;
 }
 
-.choix {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 30px;
-    background-color: var(--blueGreyBg);
-    color: var(--textColor);
-    border: none;
-    padding: 10px;
-    width: 90vw;
-    font-size: 13px;
-}
-
-.choix>p {}
 
 .btnSubmit {
     border-radius: 15px;
@@ -172,6 +158,10 @@ img {
     background-color: var(--buttonGreen);
     border: none;
     color: var(--textColor);
+}
+
+#sign_up{
+    background-color: var(--purpleShade);
 }
 
 #chargingBar {
@@ -232,19 +222,27 @@ footer>div>a>p {
     #mainIndex {
         flex-direction: row;
     }
+
+    input {
+        width: 10px;
+    }
 }
 
 
 
 
 /* ELIESSE */
-.choix>input{
-    text-align: left;
-}
+
 
 input {
+    border-radius: 30px;
+    padding: 10px;
+    width: 90vw;
+    max-width: 600px;
+    font-size: 13px;
     border: none;
-    background-color: transparent;
+    background-color: var(--blueGreyBg);
+    color: var(--textColor);
 }
 
 #connexionForm {
