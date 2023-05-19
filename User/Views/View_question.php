@@ -4,7 +4,7 @@
  <!-- Affichage de la question actuelle -->
 
  <div class="container">
-<div id="chargingBar"><div id="chargingMove"></div>
+<!-- <div id="chargingBar"><div id="chargingMove"></div> -->
     <main id="mainQuestions">
         <?php foreach ($libelle_theme as $l) : ?>
         <h1><?= $l ?></h1>

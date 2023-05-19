@@ -163,6 +163,7 @@ img {
     background-color: var(--buttonGreen);
     border: none;
     color: var(--textColor);
+    cursor: pointer;
 }
 #chargingBar{
     width: 100%;

@@ -22,7 +22,7 @@
             </div>
 
             <div class="choix">
-                <input type="password" id="ipassword" name="password" placeholder="mot de passe" required />
+                <input type="password" id="ipassword" name="password" placeholder="Mot de passe" required />
             </div>
 
             <div class="ButtonSubmitDiv">
