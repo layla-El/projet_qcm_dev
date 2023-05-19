@@ -72,11 +72,16 @@ public function get_theme_libelle($libelle_theme)
 
     // REPONSES//
 
-    public function get_all_reponses($libelle_reponse)
+    public function get_reponses_by_question($id_question)
     {
-        $r = $this->bd->prepare("SELECT * FROM reponses WHERE libelle_reponse = :libelle_reponse ORDER BY id_reponse");
-        $r->bindParam(":libelle_reponse", $libelle_reponse);
+        $r = $this->bd->prepare("SELECT r.libelle_reponse
+                                 FROM reponses r
+                                 JOIN questions q ON q.id_question = r.id_question
+                                 WHERE q.id_question = :id_question");
+        $r->bindParam(":id_question", $id_question);
         $r->execute();
+    
         return $r->fetchAll(PDO::FETCH_OBJ);
     }
+    
 }

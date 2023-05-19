@@ -20,13 +20,21 @@ class Controller_question extends Controller
         $questions = $m->get_question($id_theme, $niveau);
         $totalQuestions = count($questions);
         $currentQuestion = $questions[$questionIndex - 1];
+        $reponses = array();
+        foreach ($questions as $question) {
+            $id_question = $question->id_question;
+            $reponses[$id_question] = $m->get_reponses_by_question($id_question);
+        }
         $data = [
+            "questions"=> $questions,
+            "reponses"=> $reponses,
             "libelle_theme" => $libelle_theme,
             "id_theme" => $id_theme,
             "currentQuestion" => $currentQuestion,
             "questionIndex" => $questionIndex,
             "totalQuestions" => $totalQuestions
         ];
+        
         $this->render("question", $data);
     }
 }
