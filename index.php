@@ -4,8 +4,8 @@
 <head>
     <meta charset="utf-8">
     <title>Index</title>
-    <link rel="stylesheet" type="text/css" href="Content/style.css">
     <script src="Content/script.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="Content/style.css">
 </head>
 
 <body>

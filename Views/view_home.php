@@ -2,7 +2,7 @@
 <!-- CONNEXION -->
 
 <div class="container">
-    <main>
+    <main id="mainConnexion">
 
         <h1>Connexion</h1>
         <form id="connexionForm" action="?controller=login&action=login" method="post">
@@ -18,12 +18,14 @@
             <div class="ButtonSubmitDiv">
                 <button type="submit" id="submit" name="submit" placeholder="Connexion" class="btnSubmit">CONNEXION</button>
             </div>
+
+        </form>
+
             <p>Pas encore de compte ?</p>
 
             <div class="ButtonSubmitDiv">
                 <button type="submit" id="sign_up" name="submit" class="btnSubmit"><a id="sign_up" href="?controller=home&action=sign_up">S'inscrire ici</a></button>
             </div>
 
-        </form>
     </main>
 </div>

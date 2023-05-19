@@ -36,6 +36,11 @@ a {
     color: var(--textColor);
 }
 
+
+
+
+/* TITRES */
+
 h1 {
     font-family: 'sk_femme_fataleregular';
     font-size: 30px;
@@ -43,11 +48,30 @@ h1 {
     text-transform: uppercase;
     text-shadow: 29px 10px 1px rgba(255, 255, 255, 0.201);
 }
-h3{
+
+h3 {
     text-align: center;
 }
 
-/* MOBILE FIRST */
+
+
+
+/* BOUTONS */
+
+.btnSubmit {
+    border-radius: 15px;
+    text-align: center;
+    width: 200px;
+    height: 30px;
+    background-color: var(--buttonGreen);
+    border: none;
+    color: var(--textColor);
+}
+
+
+
+
+/* MOBILE FIRST *//* MOBILE FIRST *//* MOBILE FIRST *//* MOBILE FIRST */
 
 
 /* HEADER */
@@ -55,16 +79,16 @@ h3{
 
 header {
     display: flex;
-    align-items: flex-start;
+    align-items: flex-end;
     justify-content: center;
     background: linear-gradient(var(--purpleShade), rgba(0, 0, 255, 0));
     position: sticky;
     top: 0;
     height: 100px;
-
 }
-
-
+header>div{
+    margin-top: auto;
+}
 
 
 
@@ -76,6 +100,8 @@ header {
 #mainIndex {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 4em;
 }
 
@@ -99,6 +125,9 @@ main>div>a>p {
     height: 100px;
     width: 100px;
     border-radius: 50%;
+}
+.categories:hover{
+    background-color: var(--fadeGreen);
 }
 
 .validate {
@@ -130,6 +159,10 @@ img {
 
 /* QUESTIONS */
 
+.containerQuestions {
+    height: 100vh;
+
+}
 
 .mainQuestions {
     display: flex;
@@ -158,29 +191,29 @@ img {
     border: none;
     padding: 10px;
     width: 90vw;
+    max-width: 600px;
     font-size: 13px;
 }
 
-.btnSubmit {
-    border-radius: 15px;
-    text-align: center;
-    width: 200px;
-    height: 30px;
-    background-color: var(--buttonGreen);
-    border: none;
-    color: var(--textColor);
-}
-#chargingBar{
+
+
+
+/* CHARGING BAR */
+
+#chargingBar {
     width: 100%;
     height: 10px;
     background-color: var(--fadeGreen);
 }
-#chargingMove{
+
+#chargingMove {
     border-radius: 5px;
     width: 20%;
     height: 9px;
     background-color: var(--validateGreen);
 }
+
+
 
 
 /* FOOTER */
@@ -212,35 +245,20 @@ footer>div>a>p {
 
 
 
+
 /* MEDIA QUERIES DESKTOP */
 
 @media (min-width: 550px) {
-  
-    body{
+
+    body {
         background-image: url("images/bgDesktop.jpg");
     }
-    .choix{
+
+    .choix {
         font-size: 15px;
     }
-    #mainIndex{
+
+    #mainIndex {
         flex-direction: row;
     }
-  }
-
-  /* ELIESSE */
-.choix>input{
-    
-}
-
-input {
-    border: none;
-    background-color: transparent;
-}
-
-#connexionForm {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
 }

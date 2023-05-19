@@ -31,7 +31,14 @@ class Model
         }
         return self::$instance;
     }
-    
+
+
+
+
+
+
+    // CONNEXION //
+
     public function get_login_user()
     {
         $email = $_POST['email'];
@@ -58,17 +65,24 @@ class Model
             return null;
         }
     }
+    
 
-    public function get_sign_up_user($nom, $prenom, $email, $hashed_password)
+
+
+
+    // INSCRIPTION // 
+
+
+    public function get_sign_up_user($nom, $prenom, $email, $mdp)
     {
-        
-        $r = $this->bd->prepare("INSERT INTO utilisateurs(nom, prenom, email, mdp) 
-        VALUES (:nom,:prenom,:email,:pass)");
+
+        $r = $this->bd->prepare("INSERT INTO `utilisateurs` (nom, prenom, email, mdp) VALUES (:nom,:prenom,:email,:mdp)");
         $r->bindParam(':nom', $nom);
         $r->bindParam(':prenom', $prenom);
         $r->bindParam(':email', $email);
-        $r->bindParam(':pass', $hashed_password);
+        $r->bindParam(':mdp', $mdp);
         $r->execute();
-    }
 
+        return $r->fetch(PDO::FETCH_OBJ);
+    }
 }

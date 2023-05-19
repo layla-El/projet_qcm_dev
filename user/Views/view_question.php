@@ -1,25 +1,35 @@
 <!-- MAIN -->
 <!-- QUESTIONS -->
 
+<!-- Affichage de la question actuelle -->
 
-<div class="container">
-<div id="chargingBar"><div id="chargingMove"></div>
-    <main id="mainQuestions">
+<div class="containerQuestions">
+        
+        <main id="mainQuestions">
 
-        <h1>Theme..</h1>
-        <h3>Titre de la question...</h3>
+            <?php foreach ($libelle_theme as $l) : ?>
+                <h1><?= $l ?></h1>
+            <?php endforeach; ?>
+            <h3><?= htmlentities($currentQuestion->libelle_question) ?></h3>
 
-        <form id="formChoix">
 
-            <div class="choix">
-                <p>"em" est relative à la taille de police de caractères de l'élément racine, tandis que "rem" est absolue et ne change pas avec la taille de police de caractères de l'élément racine.</p>
-            </div>
 
-            <div class="ButtonSubmitDiv">
-                <button type="submit" class="btnSubmit">VALIDER</button>
-            </div>
+            <form action="?controller=question&action=question&id_theme=<?= $id_theme ?>&niveau=<?= $niveau ?>&question=<?= $questionIndex + 1 ?>" id="formChoix">
+                <?php $id_question = $currentQuestion->id_question; ?>
+                <?php foreach ($reponses[$id_question] as $reponse) : ?>
 
-        </form>
+                    <div class="choix">
+                        <!-- Récupération des réponses correspondantes à la question affichée -->
+                        <p><?= htmlentities($reponse->libelle_reponse) ?></p>
+                    </div>
 
-    </main>
-</div>
+                <?php endforeach; ?>
+
+                <div class="ButtonSubmitDiv">
+                    <button type="submit" class="btnSubmit">VALIDER</button>
+                </div>
+
+            </form>
+
+        </main>
+    </div>

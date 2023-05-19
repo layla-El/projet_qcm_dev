@@ -1,6 +1,7 @@
    <!-- HEADER -->
 
    <header>
-            <div>
-            </div>
-        </header>
+       <div id="chargingBar">
+           <div id="chargingMove"></div>
+       </div>
+   </header>

@@ -45,13 +45,17 @@ class Model
 
     // NIVEAUX //
 
-    public function get_niveau_questions() 
+    public function get_niveau()
     {
         $r = $this->bd->prepare("SELECT DISTINCT niveau FROM questions ORDER BY niveau");
         $r->execute();
         return $r->fetchAll(PDO::FETCH_OBJ);
     }
-    
+
+
+
+    // LIBELLÉ THEME //
+
     public function get_theme_libelle($libelle_theme)
     {
         $r = $this->bd->prepare("SELECT libelle_theme FROM themes WHERE id_theme = :id_theme");
@@ -61,10 +65,11 @@ class Model
     }
 
 
-    // QUESTIONS //
+    // QUESTONS //
 
     public function get_question($id_theme, $niveau)
     {
+
         $r = $this->bd->prepare("SELECT * FROM questions WHERE id_theme = :theme_id AND niveau = :level ORDER BY RAND() LIMIT 10");
         $r->bindParam(":theme_id", $id_theme);
         $r->bindParam(":level", $niveau);
@@ -75,14 +80,17 @@ class Model
 
 
 
-    
+    // REPONSES//
 
-    // REPONSES //
-
-    public function get_all_reponses() 
+    public function get_reponses_by_question($id_question)
     {
-        $r = $this->bd->prepare("SELECT * FROM reponses ORDER BY id_reponse") ;
-        $r->execute() ;
-        return $r->fetchAll(PDO::FETCH_OBJ) ;
+        $r = $this->bd->prepare("SELECT r.libelle_reponse
+                                   FROM reponses r
+                                   JOIN questions q ON q.id_question = r.id_question
+                                   WHERE q.id_question = :id_question");
+        $r->bindParam(":id_question", $id_question);
+        $r->execute();
+
+        return $r->fetchAll(PDO::FETCH_OBJ);
     }
 }

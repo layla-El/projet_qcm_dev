@@ -2,7 +2,7 @@
 <!-- INSCRIPTION -->
 
 <div class="container">
-    <main>
+    <main id="mainConnexion">
 
 
         <h1> Inscription</h1>
@@ -29,11 +29,11 @@
                 <button type="submit" id="submit" name="submit" class="btnSubmit">INSCRIPTION</button>
             </div>
 
-            <div class="ButtonSubmitDiv">
-                <button type="submit" id="sign_up" name="submit" class="btnSubmit"><a href="?controller=sign_up&action=home">Retour à la connexion ? </a></button>
-            </div>
-
         </form>
+
+        <div class="ButtonSubmitDiv">
+            <button type="" id="sign_up" class="btnSubmit"><a href="?controller=sign_up&action=home">Retour à la connexion ? </a></button>
+        </div>
 
     </main>
 </div>
