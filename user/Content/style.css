@@ -229,3 +229,21 @@ footer>div>a>p {
         flex-direction: row;
     }
   }
+
+  /* ELIESSE */
+.choix>input{
+    text-align: left;
+}
+
+input {
+    border: none;
+    background-color: transparent;
+}
+
+#connexionForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
