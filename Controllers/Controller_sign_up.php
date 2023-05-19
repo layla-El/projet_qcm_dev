@@ -8,10 +8,6 @@ class Controller_sign_up extends Controller
     }
 
 
-    public function action_home()
-    {
-        $this->render("home");
-    }
     public function action_insert_user()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {

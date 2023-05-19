@@ -1,6 +1,6 @@
    <!-- FOOTER -->
 
-   <footer>
+   <!-- <footer>
             <div><a href="">
                 <div class=""><img src="Content/images/circle.png" alt=""></div>
                 <p>Profil</p></a>
@@ -13,4 +13,4 @@
                 <div class=""><img src="Content/images/polygon.png" alt=""></div>
                 <p>Déconnexion</p></a>
             </div>
-        </footer>
+        </footer> -->
