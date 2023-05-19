@@ -225,4 +225,7 @@ footer>div>a>p {
     .choix{
         font-size: 15px;
     }
+    #mainIndex{
+        flex-direction: row;
+    }
   }
