@@ -5,9 +5,8 @@
 <div class="container">
 <?php foreach ($libelle_theme as $l) : ?>
         <h1><?= $l ?></h1>
+        <?php endforeach; ?>
 <main id="mainNiveaux">
-
-    <?php endforeach; ?>
     <?php
     $imageMapping = [
         "Débutant" => "star",

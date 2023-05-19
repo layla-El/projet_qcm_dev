@@ -6,6 +6,7 @@
     --blueGreyFooter: rgb(48, 48, 106);
     --validateGrey: rgb(97, 97, 126);
     --purpleShade: rgb(93, 56, 130);
+    --fadeGreen: rgba(26, 87, 37, 0.606);
 
 }
 
@@ -35,17 +36,22 @@ a {
     color: var(--textColor);
 }
 
-/* MOBILE FIRST */
-
-
-/* HEADER */
-
 h1 {
     font-family: 'sk_femme_fataleregular';
     font-size: 30px;
     text-align: center;
     text-transform: uppercase;
+    text-shadow: 29px 10px 1px rgba(255, 255, 255, 0.201);
 }
+h3{
+    text-align: center;
+}
+
+/* MOBILE FIRST */
+
+
+/* HEADER */
+
 
 header {
     display: flex;
@@ -125,14 +131,14 @@ img {
 /* QUESTIONS */
 
 
-.mainQuestions{
+.mainQuestions {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.formChoix {
+#formChoix {
     padding: 0;
     margin: 0;
     display: flex;
@@ -143,16 +149,38 @@ img {
 }
 
 .choix {
-    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
     background-color: var(--blueGreyBg);
     color: var(--textColor);
     border: none;
-    width: 24em;
-    min-height: 3em;
+    padding: 10px;
+    width: 90vw;
+    font-size: 13px;
 }
 
-
-
+.btnSubmit {
+    border-radius: 15px;
+    text-align: center;
+    width: 200px;
+    height: 30px;
+    background-color: var(--buttonGreen);
+    border: none;
+    color: var(--textColor);
+}
+#chargingBar{
+    width: 100%;
+    height: 10px;
+    background-color: var(--fadeGreen);
+}
+#chargingMove{
+    border-radius: 5px;
+    width: 20%;
+    height: 9px;
+    background-color: var(--validateGreen);
+}
 
 
 /* FOOTER */
@@ -181,3 +209,17 @@ footer>div>a>p {
     font-size: 10px;
     line-height: 0px;
 }
+
+
+
+/* MEDIA QUERIES DESKTOP */
+
+@media (min-width: 550px) {
+  
+    body{
+        background-image: url("images/bgDesktop.jpg");
+    }
+    .choix{
+        font-size: 15px;
+    }
+  }

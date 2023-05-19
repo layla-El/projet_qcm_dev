@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <title>Index</title>
     <link rel="stylesheet" type="text/css" href="Content/style.css">
+    <script src="Content/script.js" defer></script>
 </head>
 
 <body>
@@ -14,7 +15,7 @@
     require_once 'Models/Model.php';
     require_once 'Utils/header.php';
 
-    $controllers = ["home","question"];
+    $controllers = ["home","question","niveau"];
     $controller_default = "home";
 
     if (isset($_GET['controller']) and in_array($_GET['controller'], $controllers)) {
