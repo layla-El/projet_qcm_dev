@@ -19,10 +19,6 @@
 
         <?php endforeach; ?>
 
-        <!-- DIV TRICHE -->
-        <!-- <div class=""></div>
-        <div></div> -->
-
 
     </main>
 </div>

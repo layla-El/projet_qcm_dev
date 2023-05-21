@@ -47,6 +47,7 @@ h1 {
     text-align: center;
     text-transform: uppercase;
     text-shadow: 29px 10px 1px rgba(255, 255, 255, 0.201);
+    padding-bottom: 2em;
 }
 
 h3 {
@@ -71,7 +72,10 @@ h3 {
 
 
 
-/* MOBILE FIRST *//* MOBILE FIRST *//* MOBILE FIRST *//* MOBILE FIRST */
+/* MOBILE FIRST */
+/* MOBILE FIRST */
+/* MOBILE FIRST */
+/* MOBILE FIRST */
 
 
 /* HEADER */
@@ -86,7 +90,8 @@ header {
     top: 0;
     height: 100px;
 }
-header>div{
+
+header>div {
     margin-top: auto;
 }
 
@@ -103,6 +108,7 @@ header>div{
     justify-content: center;
     align-items: center;
     gap: 4em;
+    padding-bottom: 100px;
 }
 
 #mainIndex>div {
@@ -126,7 +132,8 @@ main>div>a>p {
     width: 100px;
     border-radius: 50%;
 }
-.categories:hover{
+
+.categories:hover {
     background-color: var(--fadeGreen);
 }
 
@@ -159,10 +166,6 @@ img {
 
 /* QUESTIONS */
 
-.containerQuestions {
-    height: 100vh;
-
-}
 
 .mainQuestions {
     display: flex;
@@ -199,7 +202,7 @@ img {
 
 /* SELECTION QUESTION */
 
-.selected{
+.selected {
     background-color: var(--purpleShade);
 }
 
@@ -221,11 +224,30 @@ img {
 }
 
 
+
+
 /* SCORE */
 
-.yellowStar{
-    width: 100px;
+#mainScore {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
+
+.yellowStar {
+    width: 150px;
+}
+
+.greenStar {
+    width: 90px;
+}
+
+.violetStar{
+    display: none;
+}
+
+
 
 /* FOOTER */
 
@@ -276,5 +298,16 @@ footer>div>a>p {
 
     #mainIndex {
         flex-direction: row;
+    }
+
+    /* QUESTIONS */
+
+    .containerQuestions {
+        height: 100vh;
+    
+    }
+
+    .violetStar{
+        display: inline-block;
     }
 }

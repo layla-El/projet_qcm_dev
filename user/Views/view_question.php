@@ -36,7 +36,7 @@
 
 
 
-//! SCRIPT POUR PASSER A LA QUESTION SUIVANTE
+<!-- SCRIPT POUR PASSER A LA QUESTION SUIVANTE -->
 <script>
     let formContainer = document.querySelector('#mainQuestions');
 
