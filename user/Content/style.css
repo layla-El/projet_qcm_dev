@@ -193,8 +193,15 @@ img {
     width: 90vw;
     max-width: 600px;
     font-size: 13px;
+    cursor: pointer;
 }
 
+
+/* SELECTION QUESTION */
+
+.selected{
+    background-color: var(--purpleShade);
+}
 
 
 
@@ -214,7 +221,11 @@ img {
 }
 
 
+/* SCORE */
 
+.yellowStar{
+    width: 100px;
+}
 
 /* FOOTER */
 
@@ -242,6 +253,11 @@ footer>div>a>p {
     font-size: 10px;
     line-height: 0px;
 }
+
+
+
+
+
 
 
 
