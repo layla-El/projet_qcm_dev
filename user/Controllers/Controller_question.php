@@ -13,9 +13,7 @@ class Controller_question extends Controller
     {
         // Vérifier si l'identifiant de la question actuelle est présent dans la requête
         $questionIndex = isset($_GET['question']) ? (int)$_GET['question'] : 1;
-        var_dump(
-            $questionIndex
-        );
+        
         $id_theme = $_GET['id_theme'];
         $niveau = isset($_GET['niveau']) ? $_GET['niveau'] : '';
 
