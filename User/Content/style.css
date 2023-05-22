@@ -36,17 +36,45 @@ a {
     color: var(--textColor);
 }
 
+
+
+
+/* TITRES */
+
 h1 {
     font-family: 'sk_femme_fataleregular';
     font-size: 30px;
     text-align: center;
     text-transform: uppercase;
     text-shadow: 29px 10px 1px rgba(255, 255, 255, 0.201);
+    padding-bottom: 2em;
 }
-h3{
+
+h3 {
     text-align: center;
 }
 
+
+
+
+/* BOUTONS */
+
+.btnSubmit {
+    border-radius: 15px;
+    text-align: center;
+    width: 200px;
+    height: 30px;
+    background-color: var(--buttonGreen);
+    border: none;
+    color: var(--textColor);
+}
+
+
+
+
+/* MOBILE FIRST */
+/* MOBILE FIRST */
+/* MOBILE FIRST */
 /* MOBILE FIRST */
 
 
@@ -55,21 +83,32 @@ h3{
 
 header {
     display: flex;
-    align-items: flex-start;
+    align-items: flex-end;
     justify-content: center;
     background: linear-gradient(var(--purpleShade), rgba(0, 0, 255, 0));
     position: sticky;
     top: 0;
     height: 100px;
-
 }
+
+header>div {
+    margin-top: auto;
+}
+
+
+
+
+
 
 /* HOME */
 
 #mainIndex {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 4em;
+    padding-bottom: 100px;
 }
 
 #mainIndex>div {
@@ -92,6 +131,10 @@ main>div>a>p {
     height: 100px;
     width: 100px;
     border-radius: 50%;
+}
+
+.categories:hover {
+    background-color: var(--fadeGreen);
 }
 
 .validate {
@@ -153,29 +196,57 @@ img {
     width: 90vw;
     max-width: 600px;
     font-size: 13px;
-}
-
-.btnSubmit {
-    border-radius: 15px;
-    text-align: center;
-    width: 200px;
-    height: 30px;
-    background-color: var(--buttonGreen);
-    border: none;
-    color: var(--textColor);
     cursor: pointer;
 }
-#chargingBar{
+
+
+/* SELECTION QUESTION */
+
+.selected {
+    background-color: var(--purpleShade);
+}
+
+
+
+/* CHARGING BAR */
+
+#chargingBar {
     width: 100%;
     height: 10px;
     background-color: var(--fadeGreen);
 }
-#chargingMove{
+
+#chargingMove {
     border-radius: 5px;
     width: 20%;
     height: 9px;
     background-color: var(--validateGreen);
 }
+
+
+
+
+/* SCORE */
+
+#mainScore {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.yellowStar {
+    width: 150px;
+}
+
+.greenStar {
+    width: 90px;
+}
+
+.violetStar{
+    display: none;
+}
+
 
 
 /* FOOTER */
@@ -207,14 +278,36 @@ footer>div>a>p {
 
 
 
+
+
+
+
+
+
 /* MEDIA QUERIES DESKTOP */
 
 @media (min-width: 550px) {
-  
-    body{
+
+    body {
         background-image: url("images/bgDesktop.jpg");
     }
-    .choix{
+
+    .choix {
         font-size: 15px;
     }
-  }
+
+    #mainIndex {
+        flex-direction: row;
+    }
+
+    /* QUESTIONS */
+
+    .containerQuestions {
+        height: 100vh;
+    
+    }
+
+    .violetStar{
+        display: inline-block;
+    }
+}

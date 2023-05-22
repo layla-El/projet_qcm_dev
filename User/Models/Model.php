@@ -21,6 +21,7 @@ class Model
         $this->bd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
 
+    // get_model()
 
     public static function get_model()
     {    // Fonction qui sert à créer une instance de Model pour l'appeler dans chaque Controller (équivalent de $connex)
@@ -30,6 +31,7 @@ class Model
         return self::$instance;
     }
 
+
     // THEMES //
 
     public function get_home()
@@ -38,10 +40,11 @@ class Model
         $r->execute();
         return $r->fetchAll(PDO::FETCH_OBJ);
     }
-   
+
+
 
     // NIVEAUX //
-    
+
     public function get_niveau()
     {
         $r = $this->bd->prepare("SELECT DISTINCT niveau FROM questions ORDER BY niveau");
@@ -49,39 +52,45 @@ class Model
         return $r->fetchAll(PDO::FETCH_OBJ);
     }
 
-public function get_theme_libelle($libelle_theme)
-{
-    $r = $this->bd->prepare("SELECT libelle_theme FROM themes WHERE id_theme = :id_theme");
-    $r->bindParam(":id_theme", $libelle_theme);
-    $r->execute();
-    return $r->fetch(PDO::FETCH_OBJ);
-}
+
+
+    // LIBELLÉ THEME //
+
+    public function get_theme_libelle($libelle_theme)
+    {
+        $r = $this->bd->prepare("SELECT libelle_theme FROM themes WHERE id_theme = :id_theme");
+        $r->bindParam(":id_theme", $libelle_theme);
+        $r->execute();
+        return $r->fetch(PDO::FETCH_OBJ);
+    }
+
 
     // QUESTONS //
-    
+
     public function get_question($id_theme, $niveau)
     {
-
-        $r = $this->bd->prepare("SELECT * FROM questions WHERE id_theme = :theme_id AND niveau = :level ORDER BY RAND() LIMIT 10");
+        $r = $this->bd->prepare("SELECT DISTINCT id_question, libelle_question FROM questions WHERE id_theme = :theme_id AND niveau = :level ORDER BY id_question");
         $r->bindParam(":theme_id", $id_theme);
         $r->bindParam(":level", $niveau);
         $r->execute();
-
+    
         return $r->fetchAll(PDO::FETCH_OBJ);
     }
+    
+
 
     // REPONSES//
 
     public function get_reponses_by_question($id_question)
     {
-        $r = $this->bd->prepare("SELECT r.libelle_reponse
-                                 FROM reponses r
-                                 JOIN questions q ON q.id_question = r.id_question
-                                 WHERE q.id_question = :id_question");
+        $r = $this->bd->prepare("SELECT r.libelle_reponse, r.id_reponse, r.`type`
+                                   FROM reponses r
+                                   JOIN questions q ON q.id_question = r.id_question
+                                   WHERE q.id_question = :id_question
+                                   ");
         $r->bindParam(":id_question", $id_question);
         $r->execute();
-    
+
         return $r->fetchAll(PDO::FETCH_OBJ);
     }
-    
 }
