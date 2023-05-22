@@ -69,12 +69,12 @@ class Model
 
     public function get_question($id_theme, $niveau)
     {
-        $query = $this->bd->prepare("SELECT DISTINCT id_question, libelle_question FROM questions WHERE id_theme = :theme_id AND niveau = :level ORDER BY id_question");
-        $query->bindParam(":theme_id", $id_theme);
-        $query->bindParam(":level", $niveau);
-        $query->execute();
+        $r = $this->bd->prepare("SELECT DISTINCT id_question, libelle_question FROM questions WHERE id_theme = :theme_id AND niveau = :level ORDER BY id_question");
+        $r->bindParam(":theme_id", $id_theme);
+        $r->bindParam(":level", $niveau);
+        $r->execute();
     
-        return $query->fetchAll(PDO::FETCH_OBJ);
+        return $r->fetchAll(PDO::FETCH_OBJ);
     }
     
 
@@ -83,7 +83,7 @@ class Model
 
     public function get_reponses_by_question($id_question)
     {
-        $r = $this->bd->prepare("SELECT r.libelle_reponse, id_reponse
+        $r = $this->bd->prepare("SELECT r.libelle_reponse, r.id_reponse, r.`type`
                                    FROM reponses r
                                    JOIN questions q ON q.id_question = r.id_question
                                    WHERE q.id_question = :id_question");

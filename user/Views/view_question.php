@@ -14,13 +14,13 @@
 
 
 
-        <form action="?controller=question&action=question&id_theme=<?= $id_theme ?>&niveau=<?= $niveau ?>&question=<?= $questionIndex + 1 ?>" id="formChoix">
+        <form action="?controller=question&action=question&id_theme=<?= $id_theme ?>&niveau=<?= $niveau ?>&question=<?= $questionIndex ?>" id="formChoix">
             <?php $id_question = $currentQuestion->id_question; ?>
             <?php foreach ($reponses[$id_question] as $reponse) : ?>
 
                 <div class="choix">
-                    <!-- Récupération des réponses correspondantes à la question affichée -->
-                    <p class="reponse"><?= htmlentities($reponse->libelle_reponse) ?></p>
+                    <!-- Récupération des réponses correspondantes à la question affichée / custom atribute -->
+                    <p class="reponse" data-id="<?= $reponse->id_reponse ?>" data-type="<?= $reponse->type ?>"><?= htmlentities($reponse->libelle_reponse) ?></p>
                 </div>
 
             <?php endforeach; ?>
@@ -37,7 +37,7 @@
 
 
 <!-- SCRIPT POUR PASSER A LA QUESTION SUIVANTE -->
-<script>
+<!-- <script>
     let formContainer = document.querySelector('#mainQuestions');
 
     // Ajout d'un écouteur d'événement "submit" au formulaire
@@ -56,4 +56,4 @@
         let redirectUrl = `?controller=question&action=question&id_theme=<?= $id_theme ?>&niveau=<?= $niveau ?>&question=${nextQuestionIndex}`;
         window.location.href = redirectUrl;
     });
-</script>
+</script> -->
