@@ -86,7 +86,8 @@ class Model
         $r = $this->bd->prepare("SELECT r.libelle_reponse, r.id_reponse, r.`type`
                                    FROM reponses r
                                    JOIN questions q ON q.id_question = r.id_question
-                                   WHERE q.id_question = :id_question");
+                                   WHERE q.id_question = :id_question
+                                   ");
         $r->bindParam(":id_question", $id_question);
         $r->execute();
 

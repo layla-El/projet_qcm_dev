@@ -16,15 +16,10 @@ class Model
         $dsn = "mysql:host=localhost;dbname=qcm_db";   // Coordonnées de la BDD
         $login = "root";   // Identifiant d'accès à la BDD
         $mdp = ""; // Mot de passe d'accès à la BDD
-        try {
-            $this->bd = new PDO($dsn, $login, $mdp);
-            $this->bd->query("SET NAMES 'utf8'");
-            $this->bd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        } catch (PDOException $e) {
-            echo "erreur de se connecter à la base:" . $e->getMessage();
-        }
+        $this->bd = new PDO($dsn, $login, $mdp);
+        $this->bd->query("SET NAMES 'utf8'");
+        $this->bd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
-
 
 
     // get_model()
@@ -36,10 +31,6 @@ class Model
         }
         return self::$instance;
     }
-
-
-
-
 
 
     // CONNEXION //

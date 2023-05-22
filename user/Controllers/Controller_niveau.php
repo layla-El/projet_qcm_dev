@@ -7,7 +7,6 @@ class Controller_niveau extends Controller
 
         $this->action_niveau();
     }
-    
     public function action_niveau()
     {
         $m = Model::get_model();

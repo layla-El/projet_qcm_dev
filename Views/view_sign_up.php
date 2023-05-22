@@ -2,7 +2,7 @@
 <!-- INSCRIPTION -->
 
 <div class="container">
-    <main id="mainConnexion">
+    <main>
 
 
         <h1> Inscription</h1>
@@ -22,18 +22,18 @@
             </div>
 
             <div class="choix">
-                <input type="password" id="ipassword" name="password" placeholder="mot de passe" required />
+                <input type="password" id="ipassword" name="password" placeholder="Mot de passe" required />
             </div>
 
             <div class="ButtonSubmitDiv">
                 <button type="submit" id="submit" name="submit" class="btnSubmit">INSCRIPTION</button>
             </div>
 
-        </form>
+            <div class="ButtonSubmitDiv">
+                <button type="submit" id="sign_up" name="submit" class="btnSubmit"><a href="?controller=sign_up&action=home">Retour à la connexion ? </a></button>
+            </div>
 
-        <div class="ButtonSubmitDiv">
-            <button type="" id="sign_up" class="btnSubmit"><a href="?controller=sign_up&action=home">Retour à la connexion ? </a></button>
-        </div>
+        </form>
 
     </main>
 </div>

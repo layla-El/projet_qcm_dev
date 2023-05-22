@@ -18,9 +18,6 @@ function toggleSelection(e) {
     this.classList.toggle("selected");
 }
 
-
-
-
 // SCRIPT POUR PASSER A LA QUESTION SUIVANTE 
 
 let formContainer = document.querySelector('#mainQuestions');
@@ -48,10 +45,7 @@ if (formContainer) {
         // 1. Incrémenter l'indice de la question pour passer à la question suivante
 
         // 2. Redirection vers la nouvelle URL avec les paramètres mis à jour
-        let redirectUrl = `?controller=question&action=question&id_theme=${id_theme}&niveau=${niveau}&question=${questionIndex + 1}`;
+        let redirectUrl = `?controller=question&action=question&id_theme=${id_theme}&niveau=${niveau}&question=${questionIndex + 1}&type=`;
         window.location.href = redirectUrl;
     });
 }
-
-
-

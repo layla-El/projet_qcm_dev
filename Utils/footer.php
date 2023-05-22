@@ -1,16 +1,16 @@
    <!-- FOOTER -->
 
-   <footer>
+   <!-- <footer>
             <div><a href="">
                 <div class=""><img src="Content/images/circle.png" alt=""></div>
-                <p></p></a>
-            </div>
-            <div><a href="">
-                <div class=""><img src="Content/images/polygon.png" alt=""></div>
-                <p></p></a>
+                <p>Profil</p></a>
             </div>
             <div><a href="">
                 <div class=""><img src="Content/images/star.png" alt=""></div>
-                <p></p></a>
+                <p>Accueil</p></a>
             </div>
-        </footer>
+            <div><a href="">
+                <div class=""><img src="Content/images/polygon.png" alt=""></div>
+                <p>Déconnexion</p></a>
+            </div>
+        </footer> -->

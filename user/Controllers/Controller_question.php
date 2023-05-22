@@ -12,12 +12,13 @@ class Controller_question extends Controller
     public function action_question()
     {
         // Vérifier si l'identifiant de la question actuelle est présent dans la requête
+        $type = isset($_GET['type']) ? $_GET['type'] : '';
         $questionIndex = isset($_GET['question']) ? (int)$_GET['question'] : 1;
-        
         $id_theme = $_GET['id_theme'];
         $niveau = isset($_GET['niveau']) ? $_GET['niveau'] : '';
 
         $m = Model::get_model();
+        //$type = $m->get_reponses_by_question($id_question, $type);
         $libelle_theme = $m->get_theme_libelle($id_theme);
         $questions = $m->get_question($id_theme, $niveau);
         $totalQuestions = count($questions);
@@ -43,7 +44,8 @@ class Controller_question extends Controller
             "questionIndex" => $questionIndex,
             "totalQuestions" => $totalQuestions,
             "niveau" => $niveau,
-            "id_reponse" => $id_reponse
+            "id_reponse" => $id_reponse,
+            "type"=>$type
         ];
 
         // Vérifier si l'indice de question atteint 10
