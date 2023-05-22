@@ -32,6 +32,13 @@ if (formContainer) {
         // Empêcher le comportement par défaut du formulaire (rechargement de la page)
         event.preventDefault();
 
+        const params = new URLSearchParams(window.location.search)
+        const id_theme = params.get("id_theme")
+        const niveau = params.get("niveau")
+        let questionIndex = parseInt(params.get("question"))
+
+        if(!questionIndex) questionIndex = 1
+
         // sélectionner toutes les réponses
 
         // récupérer le data type et l'id de la réponse
@@ -40,12 +47,9 @@ if (formContainer) {
 
         // 1. Incrémenter l'indice de la question pour passer à la question suivante
 
-        // let questionIndex = <?= $questionIndex ?>;
-        // let nextQuestionIndex = questionIndex + 1;
-
         // 2. Redirection vers la nouvelle URL avec les paramètres mis à jour
-        // let redirectUrl = `?controller=question&action=question&id_theme=<?= $id_theme ?>&niveau=<?= $niveau ?>&question=${nextQuestionIndex}`;
-        // window.location.href = redirectUrl;
+        let redirectUrl = `?controller=question&action=question&id_theme=${id_theme}&niveau=${niveau}&question=${questionIndex + 1}`;
+        window.location.href = redirectUrl;
     });
 }
 
