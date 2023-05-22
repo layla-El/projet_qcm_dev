@@ -6,6 +6,7 @@
     <title>Index</title>
     <script src="Content/script.js" defer></script>
     <link rel="stylesheet" type="text/css" href="Content/style.css">
+
 </head>
 
 <body>
@@ -15,8 +16,9 @@
     require_once 'Models/Model.php';
     require_once 'Utils/header.php';
 
-    $controllers = ["home", "login", "sign_up"];
+    $controllers = ["home"];
     $controller_default = "home";
+
 
     if (isset($_GET['controller']) and in_array($_GET['controller'], $controllers)) {
         $nom_controller = $_GET['controller'];
