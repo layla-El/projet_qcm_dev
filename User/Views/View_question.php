@@ -12,12 +12,10 @@
         <?php endforeach; ?>
         <h3><?= htmlentities($currentQuestion->libelle_question) ?></h3>
 
+        <?php $id_question = $currentQuestion->id_question; ?>
+        <?php foreach ($reponses[$id_question] as $reponse) : ?>
 
-
-        <form action="?controller=question&action=question&id_theme=<?= $id_theme ?>&niveau=<?= $niveau ?>&question=<?= $questionIndex + 1?>&type=<?= $type ?>" id="formChoix">
-            <?php $id_question = $currentQuestion->id_question; ?>
-            <?php foreach ($reponses[$id_question] as $reponse) : ?>
-
+        <form action="?controller=question&action=question&id_theme=<?= $id_theme ?>&niveau=<?= $niveau ?>&question=<?= $questionIndex + 1?>&type=<?= $reponse->type ?>" id="formChoix">
                 <div class="choix">
                     <!-- Récupération des réponses correspondantes à la question affichée / custom atribute -->
                     <p class="reponse" data-id="<?= $reponse->id_reponse ?>" data-type="<?= $reponse->type ?>"><?= htmlentities($reponse->libelle_reponse) ?></p>
