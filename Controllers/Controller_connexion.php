@@ -1,20 +1,22 @@
 <?php
 
-class Controller_login extends Controller
+class Controller_connexion extends Controller
 {
     public function action_default()
     {
-        $this->action_home();
+        $this->action_afficher_connexion();
     }
-    public function action_home()
+
+    public function action_afficher_connexion()  // afficher la page de connexion
     {
-        $this->render("home");
+        $this->render("connexion");
     }
-    public function action_login()
+
+    public function action_traitement_connexion()
     {
         $m = Model::get_model();
         if (isset($_POST['submit'])) {
-            $user = $m->get_login_user();
+            $user = $m->get_traitement_connexion();
             
             
             if ($user) {
@@ -25,19 +27,17 @@ class Controller_login extends Controller
                 $_SESSION['name'] = $nom;
                 $_SESSION['prenom'] = $prenom;
                 $_SESSION['role'] = $role;
-                var_dump($user);
           
 
                 if ($_SESSION['role'] === 0) {
-                    header('Location: User/?controller=home&action=home');
-                    var_dump($_SESSION['role']);
+                    header('Location: user/?controller=themes&action=afficher_themes');
                 }
             } else {
                 //! Les identifiants de connexion sont incorrects
-                header('Location: ?controller=home&action=home');
+                header('Location: ?controller=connexionx&action=afficher_connexion');
             }
             // die("Aucun utilisateur trouvé");
-        }
+        
 
     }
-}
+}}

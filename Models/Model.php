@@ -16,10 +16,15 @@ class Model
         $dsn = "mysql:host=localhost;dbname=qcm_db";   // Coordonnées de la BDD
         $login = "root";   // Identifiant d'accès à la BDD
         $mdp = ""; // Mot de passe d'accès à la BDD
-        $this->bd = new PDO($dsn, $login, $mdp);
-        $this->bd->query("SET NAMES 'utf8'");
-        $this->bd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        try {
+            $this->bd = new PDO($dsn, $login, $mdp);
+            $this->bd->query("SET NAMES 'utf8'");
+            $this->bd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch (PDOException $e) {
+            echo "erreur de se connecter à la base:" . $e->getMessage();
+        }
     }
+
 
 
     // get_model()
@@ -33,9 +38,13 @@ class Model
     }
 
 
+
+
+
+
     // CONNEXION //
 
-    public function get_login_user()
+    public function get_traitement_connexion()
     {
         $email = $_POST['email'];
         $password = $_POST['password'];
@@ -69,7 +78,7 @@ class Model
     // INSCRIPTION // 
 
 
-    public function get_sign_up_user($nom, $prenom, $email, $mdp)
+    public function get_traitement_inscription($nom, $prenom, $email, $mdp)
     {
 
         $r = $this->bd->prepare("INSERT INTO `utilisateurs` (nom, prenom, email, mdp) VALUES (:nom,:prenom,:email,:mdp)");

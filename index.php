@@ -4,7 +4,9 @@
 <head>
     <meta charset="utf-8">
     <title>Index</title>
+    <script src="Content/script.js" defer></script>
     <link rel="stylesheet" type="text/css" href="Content/style.css">
+
 </head>
 
 <body>
@@ -14,8 +16,9 @@
     require_once 'Models/Model.php';
     require_once 'Utils/header.php';
 
-    $controllers = ["home", "login", "sign_up"];
-    $controller_default = "home";
+    $controllers = ["connexion", "inscription"];
+    $controller_default = "connexion";
+
 
     if (isset($_GET['controller']) and in_array($_GET['controller'], $controllers)) {
         $nom_controller = $_GET['controller'];
@@ -33,7 +36,6 @@
         exit("Error 404 : not found");
     }
 
-    require_once 'Utils/footer.php';
     ?>
 </body>
 

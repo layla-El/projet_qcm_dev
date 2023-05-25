@@ -17,7 +17,7 @@ abstract class Controller
 
     protected function render($vue, $data = [])
     {
-        extract($data);
+        extract($data); // permet de récupérer sous forme de variables ce qu'il y a dans le tableau data
         $file_name = "Views/view_" . $vue . ".php";
         if (file_exists($file_name)) {
             require($file_name);
