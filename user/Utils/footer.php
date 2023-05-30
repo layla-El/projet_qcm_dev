@@ -5,7 +5,7 @@
                 <div class=""><img src="Content/images/circle.png" alt=""></div>
                 <p>Accueil</p></a>
             </div>
-            <div><a href="">
+            <div><a href="?controller=profil&action=afficher_profil">
                 <div class=""><img src="../Content/images/polygon.png" alt=""></div>
                 <p>Profil</p></a>
             </div>

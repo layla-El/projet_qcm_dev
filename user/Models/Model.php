@@ -53,6 +53,8 @@ class Model
     }
 
 
+
+
     public function get_afficher_libelle_themes_par_niveaux($id_theme)
     {
         $r = $this->bd->prepare("SELECT DISTINCT libelle_theme FROM themes WHERE id_theme = :id_theme");
@@ -100,6 +102,10 @@ class Model
     }
 
 
+
+    
+
+    // RETOUR VERS NIVEAUX // 
 
 
     public function get_retour_niveaux_theme($id_theme)
