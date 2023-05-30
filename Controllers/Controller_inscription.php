@@ -1,26 +1,24 @@
 <?php
 
-class Controller_sign_up extends Controller
+class Controller_inscription extends Controller
 {
     public function action_default()
     {
-        $this->action_home();
+        $this->action_afficher_inscription();
     }
 
 
-    public function action_home()
+    public function action_afficher_inscription()
     {
-        $this->render("home");
+        $this->render("inscription");
     }
-
-
 
 
 
     // INSCRIPTION // 
 
 
-    public function action_insert_user()
+    public function action_traitement_inscription()
     {
 
      
@@ -33,13 +31,13 @@ class Controller_sign_up extends Controller
 
 
            
-            $data = $m->get_sign_up_user($nom, $prenom, $email, $mdp);
+            $data = $m->get_traitement_inscription($nom, $prenom, $email, $mdp);
         
             $_SESSION['email'] = $data->email;
             $_SESSION['nom'] = $data->nom;
             $_SESSION['prenom'] = $data->prenom;
 
-            header('Location: ?controller=home&action=home');
+            header('Location: ?controller=connexion&action=afficher_connexion');
       
     }
 }

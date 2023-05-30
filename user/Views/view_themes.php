@@ -11,7 +11,7 @@
 
 
             <div>
-                <a href="?controller=niveau&action=niveau&id_theme=<?= $theme->id_theme ?>">
+                <a href="?controller=themes&action=afficher_niveaux_par_theme&id_theme=<?= $theme->id_theme?>">
                     <div class="categories"><img src="Content/images/<?= $theme->image_theme ?>" alt="white geometrical item"></div>
                     <p><?= $theme->libelle_theme ?></p>
                 </a>

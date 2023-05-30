@@ -44,7 +44,7 @@ class Model
 
     // CONNEXION //
 
-    public function get_login_user()
+    public function get_traitement_connexion()
     {
         $email = $_POST['email'];
         $password = $_POST['password'];
@@ -78,7 +78,7 @@ class Model
     // INSCRIPTION // 
 
 
-    public function get_sign_up_user($nom, $prenom, $email, $mdp)
+    public function get_traitement_inscription($nom, $prenom, $email, $mdp)
     {
 
         $r = $this->bd->prepare("INSERT INTO `utilisateurs` (nom, prenom, email, mdp) VALUES (:nom,:prenom,:email,:mdp)");

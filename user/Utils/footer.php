@@ -1,7 +1,7 @@
    <!-- FOOTER -->
 
    <footer>
-            <div><a href="?controller=home&action=home">
+            <div><a href="?controller=themes&action=themes">
                 <div class=""><img src="Content/images/circle.png" alt=""></div>
                 <p>Accueil</p></a>
             </div>

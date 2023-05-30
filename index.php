@@ -16,8 +16,8 @@
     require_once 'Models/Model.php';
     require_once 'Utils/header.php';
 
-    $controllers = ["home"];
-    $controller_default = "home";
+    $controllers = ["connexion", "inscription"];
+    $controller_default = "connexion";
 
 
     if (isset($_GET['controller']) and in_array($_GET['controller'], $controllers)) {

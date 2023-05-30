@@ -7,7 +7,7 @@
 
         <h1> Inscription</h1>
 
-        <form id="connexionForm" action="?controller=sign_up&action=insert_user" method="post">
+        <form id="connexionForm" action="?controller=inscription&action=traitement_inscription" method="post">
 
             <div class="choix">
                 <input type="text" id="inom" name="nom" placeholder="Nom" required />
@@ -32,7 +32,7 @@
         </form>
 
         <div class="ButtonSubmitDiv">
-            <button type="" id="sign_up" class="btnSubmit"><a href="?controller=sign_up&action=home">Retour à la connexion ? </a></button>
+            <button type="" id="sign_up" class="btnSubmit"><a href="?controller=connexion&action=afficher_connexion">Retour à la connexion ? </a></button>
         </div>
 
     </main>
