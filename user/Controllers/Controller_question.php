@@ -4,57 +4,103 @@ class Controller_question extends Controller
 {
     public function action_default()
     {
-
-        $this->action_question();
+        $this->action_id_questions();
     }
 
 
-    public function action_question()
+    public function action_id_questions()
     {
-        // Vérifier si l'identifiant de la question actuelle est présent dans la requête
-        $type = isset($_GET['type']) ? $_GET['type'] : '';
-        $questionIndex = isset($_GET['question']) ? (int)$_GET['question'] : 1;
-        $id_theme = $_GET['id_theme'];
-        $niveau = isset($_GET['niveau']) ? $_GET['niveau'] : '';
-
         $m = Model::get_model();
-        //$type = $m->get_reponses_by_question($id_question, $type);
-        $libelle_theme = $m->get_theme_libelle($id_theme);
-        $questions = $m->get_question($id_theme, $niveau);
-        $totalQuestions = count($questions);
-        $currentQuestion = $questions[$questionIndex - 1];
-        $reponses = array();
 
-        foreach ($questions as $question) {
-            $id_question = $question->id_question;
-            $reponses[$id_question] = $m->get_reponses_by_question($id_question);
+        $id_theme = $_GET['id_theme'];
+        $niveau = $_GET['niveau'];
 
-            // Ajouter les ID des réponses au tableau $reponseIds
-            foreach ($reponses[$id_question] as $reponse) {
-                $id_reponse = $reponse->id_reponse;
+        $id_questions = $m->get_id_questions($id_theme, $niveau);
+
+        $_SESSION["id_questions"] = $id_questions;
+
+        $cpt = 0;
+        $_SESSION["cpt"] = $cpt;
+        $_SESSION['score'] = 0;
+
+        $this->render("question");
+    }
+
+
+
+    public function action_afficher_une_question()
+    {
+        $m = Model::get_model();
+
+        $liste_questions = $_SESSION["id_questions"];
+        $cpt = $_SESSION["cpt"];
+        // echo $cpt;
+
+        $id_question = $liste_questions[$cpt]->id_question;
+        //echo $id_question;
+
+        $libelle_question = $m->get_afficher_une_question($id_question);
+        $libelle_reponse = $m->get_afficher_une_reponse($id_question);
+        // Stockez les valeurs de type dans une variable
+
+        if (isset($_POST['selected_reponse'])) {
+
+            $selectedReponses = $_POST["selected_reponse"];
+            //var_dump($_POST);
+            //var_dump($selectedReponses);
+
+
+            if ($selectedReponses === '1') {
+                $_SESSION['score']++;
             }
         }
 
         $data = [
-            "questions" => $questions,
-            "reponses" => $reponses,
-            "libelle_theme" => $libelle_theme,
-            "id_theme" => $id_theme,
-            "currentQuestion" => $currentQuestion,
-            "questionIndex" => $questionIndex,
-            "totalQuestions" => $totalQuestions,
-            "niveau" => $niveau,
-            "id_reponse" => $id_reponse,
-            "type"=>$type
+            'libelle_question' => $libelle_question,
+            'libelle_reponse' => $libelle_reponse
         ];
 
-        // Vérifier si l'indice de question atteint 10
-        if ($questionIndex === 11) {
+        $cpt++;
+        $_SESSION["cpt"] = $cpt;
 
-            // Si oui Rediriger l'utilisateur vers la vue score
+        if ($cpt === 10) {
             $this->render("score", $data);
         } else {
-            $this->render("question", $data);
+            $this->render("afficher_une_question", $data);
         }
     }
 }
+
+
+
+        //var_dump($_POST);
+        //var_dump($selectedReponses);
+
+
+        //calcluler le score en fonction de la réponse selectionnée
+        // Gérez le cas où $selectedReponses n'est pas un tableau
+        // if (is_array($selectedReponses)) {
+        //    // $score = $this->calculerScore($selectedReponses);
+        //     $_SESSION['score'] = $score;
+        // } else {
+
+        //     // Vous pouvez définir un score par défaut ou afficher un message d'erreur
+        //     $_SESSION['score'] = 0; // Score par défaut
+        //     // Autres actions à prendre en cas d'erreur
+        // }
+       
+
+    //Ondéfinit la fonction qui calcules le score: 
+    // private  function calculerScore($selectedReponses)
+    // {
+    //     // var_dump($selectedReponses); // Vérifier les valeurs des réponses sélectionnées
+    //     $score = 0;
+    //     foreach ($selectedReponses as $selectedReponse) {
+    //         if ($selectedReponse === '1') {
+    //             $score += 1;
+    //         } else if ($selectedReponse === '0') {
+    //             $score += 0;
+    //         }
+    //     }
+    //     return $score;
+    // }

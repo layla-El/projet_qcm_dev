@@ -11,12 +11,13 @@
 <body>
     <?php
     session_start();
+    echo $_SESSION['nom'] . $_SESSION['prenom'];
     require_once 'Controllers/Controller.php';
     require_once 'Models/Model.php';
     require_once 'Utils/header.php';
 
-    $controllers = ["home","question","niveau"];
-    $controller_default = "home";
+    $controllers = ["themes", "question", "reponse", "niveau"];
+    $controller_default = "themes";
 
     if (isset($_GET['controller']) and in_array($_GET['controller'], $controllers)) {
         $nom_controller = $_GET['controller'];

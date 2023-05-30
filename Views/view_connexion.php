@@ -5,7 +5,7 @@
     <main>
 
         <h1>Connexion</h1>
-        <form id="connexionForm" action="?controller=login&action=login" method="post">
+        <form id="connexionForm" action="?controller=connexion&action=traitement_connexion" method="post">
 
             <div class="choix">
                 <input type="email" id="email" name="email" placeholder="Email <?= $_SESSION["error"]["lastEmail"] ?? "" ?>" />
@@ -21,9 +21,9 @@
             <p>Pas encore de compte ?</p>
 
             <div class="ButtonSubmitDiv">
-                <button type="submit" id="sign_up" name="submit" class="btnSubmit"><a id="sign_up" href="?controller=home&action=sign_up">S'inscrire ici</a></button>
+                <button type="submit" id="sign_up" name="submit" class="btnSubmit"><a id="sign_up" href="?controller=inscription&action=afficher_inscription">S'inscrire ici</a></button>
             </div>
 
         </form>
     </main>
-</div>
+</div> 

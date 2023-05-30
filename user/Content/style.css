@@ -186,7 +186,6 @@ img {
 
 .choix {
     display: flex;
-    justify-content: center;
     align-items: center;
     border-radius: 30px;
     background-color: var(--blueGreyBg);
