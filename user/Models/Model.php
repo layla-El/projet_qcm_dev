@@ -127,4 +127,18 @@ class Model
         return $r->fetchAll(PDO::FETCH_OBJ);
     }
 
+
+    // TRAITEMENT SCORE  //
+
+
+    public function get_traitement_score($score)
+    {
+
+        $r = $this->bd->prepare("INSERT INTO `choix` (score) VALUES (:score)");
+        $r->bindParam(':score', $score);
+        $r->execute();
+
+        return $r->fetch(PDO::FETCH_OBJ);
+    }
+
 }

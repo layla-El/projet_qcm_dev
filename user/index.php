@@ -15,7 +15,7 @@
     require_once 'Models/Model.php';
     require_once 'Utils/header.php';
 
-    $controllers = ["themes", "question", "reponse", "niveau", "profil"];
+    $controllers = ["themes", "question", "reponse", "niveau", "profil", "score"];
     $controller_default = "themes";
 
     if (isset($_GET['controller']) and in_array($_GET['controller'], $controllers)) {

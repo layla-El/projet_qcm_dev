@@ -253,6 +253,14 @@ img {
 
 #mainProfil {
     display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#mainProfil>div {
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -337,6 +345,7 @@ footer>div>a>p {
         flex-direction: row;
     }
 
+
     /* QUESTIONS */
 
     .containerQuestions {
@@ -347,4 +356,6 @@ footer>div>a>p {
     .violetStar {
         display: inline-block;
     }
+
+
 }
