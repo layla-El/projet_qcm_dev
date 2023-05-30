@@ -11,7 +11,8 @@
                 <img class="violetStar" src="Content/images/starViolet.png" alt="Yellow star">
             </div>
             <h1>B r a v o !</h1>
-            <p>Votre score est de : <?= $totalType1 ?></p>
+            <p>Votre score est de : <?= $_SESSION['score'] ?></p>
+           
         </main>
 
     </div>

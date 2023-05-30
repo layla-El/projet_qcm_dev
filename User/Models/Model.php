@@ -83,8 +83,6 @@ class Model
         return $r->fetchAll(PDO::FETCH_OBJ);
     }
 
-
-
     public function get_afficher_une_reponse($id_question)
     {
          // - une requete pour récupérer les réponses
@@ -92,5 +90,12 @@ class Model
          $r->bindParam(":id_question", $id_question);
          $r->execute();
          return $r->fetchAll(PDO::FETCH_OBJ);
+    }
+    public function get_type_reponse($type_reponse)
+    {
+        $r = $this->bd->prepare("SELECT `type` FROM reponses WHERE id_reponse = :id_reponse");
+        $r->bindParam(":id_reponse", $type_reponse);
+        $r->execute();
+        return $r->fetch(PDO::FETCH_OBJ)->type;
     }
 }

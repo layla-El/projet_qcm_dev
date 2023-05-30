@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 class Controller_question extends Controller
 {
     public function action_default()
@@ -20,6 +21,7 @@ class Controller_question extends Controller
 
         $cpt = 0;
         $_SESSION["cpt"] = $cpt;
+        $_SESSION['score'] = 0;
 
         $this->render("question");
     }
@@ -35,8 +37,23 @@ class Controller_question extends Controller
         // echo $cpt;
 
         $id_question = $liste_questions[$cpt]->id_question;
+        //echo $id_question;
+
         $libelle_question = $m->get_afficher_une_question($id_question);
         $libelle_reponse = $m->get_afficher_une_reponse($id_question);
+        // Stockez les valeurs de type dans une variable
+
+        if (isset($_POST['selected_reponse'])) {
+
+            $selectedReponses = $_POST["selected_reponse"];
+            //var_dump($_POST);
+            //var_dump($selectedReponses);
+
+
+            if ($selectedReponses === '1') {
+                $_SESSION['score']++;
+            }
+        }
 
         $data = [
             'libelle_question' => $libelle_question,
@@ -46,12 +63,44 @@ class Controller_question extends Controller
         $cpt++;
         $_SESSION["cpt"] = $cpt;
 
-
-
-        if ($cpt === 11){
+        if ($cpt === 10) {
             $this->render("score", $data);
-        }else {
+        } else {
             $this->render("afficher_une_question", $data);
         }
     }
 }
+
+
+
+        //var_dump($_POST);
+        //var_dump($selectedReponses);
+
+
+        //calcluler le score en fonction de la réponse selectionnée
+        // Gérez le cas où $selectedReponses n'est pas un tableau
+        // if (is_array($selectedReponses)) {
+        //    // $score = $this->calculerScore($selectedReponses);
+        //     $_SESSION['score'] = $score;
+        // } else {
+
+        //     // Vous pouvez définir un score par défaut ou afficher un message d'erreur
+        //     $_SESSION['score'] = 0; // Score par défaut
+        //     // Autres actions à prendre en cas d'erreur
+        // }
+       
+
+    //Ondéfinit la fonction qui calcules le score: 
+    // private  function calculerScore($selectedReponses)
+    // {
+    //     // var_dump($selectedReponses); // Vérifier les valeurs des réponses sélectionnées
+    //     $score = 0;
+    //     foreach ($selectedReponses as $selectedReponse) {
+    //         if ($selectedReponse === '1') {
+    //             $score += 1;
+    //         } else if ($selectedReponse === '0') {
+    //             $score += 0;
+    //         }
+    //     }
+    //     return $score;
+    // }
