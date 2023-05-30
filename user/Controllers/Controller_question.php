@@ -8,6 +8,8 @@ class Controller_question extends Controller
     }
 
 
+
+
     public function action_id_questions()
     {
         $m = Model::get_model();
@@ -18,12 +20,16 @@ class Controller_question extends Controller
         $id_questions = $m->get_id_questions($id_theme, $niveau);
 
         $_SESSION["id_questions"] = $id_questions;
+       
 
         $cpt = 0;
         $_SESSION["cpt"] = $cpt;
+        $_SESSION['score'] = 0;
 
         $this->render("question");
     }
+
+
 
 
 
@@ -33,23 +39,34 @@ class Controller_question extends Controller
 
         $liste_questions = $_SESSION["id_questions"];
         $cpt = $_SESSION["cpt"];
-      
-      
 
         $id_theme = $_SESSION["id_theme"];
-
         $id_question = $liste_questions[$cpt]->id_question;
-   
+
 
         $libelle_question = $m->get_afficher_une_question($id_question);
         $libelle_reponse = $m->get_afficher_une_reponse($id_question);
 
         echo '<p>cpt: ' . $cpt . 'id question: ' . $id_question . 'id theme: ' . $id_theme . '</p>';
+
+        if (isset($_POST['selected_reponse'])) {
+
+            $selectedReponses = $_POST["selected_reponse"];
+            //var_dump($_POST);
+            //var_dump($selectedReponses);
+
+
+            if ($selectedReponses === '1') {
+                $_SESSION['score']++;
+            }
+        }
+
         $data = [
             'libelle_question' => $libelle_question,
             'libelle_reponse' => $libelle_reponse,
             'id_theme' => $id_theme
         ];
+
 
         $cpt++;
         $_SESSION["cpt"] = $cpt;

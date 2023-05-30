@@ -34,7 +34,7 @@ class Model
 
     // THEMES //
 
-    public function get_traitement_themes()
+    public function get_afficher_themes()
     {
         $r = $this->bd->prepare("SELECT id_theme, libelle_theme, image_theme FROM themes");
         $r->execute();

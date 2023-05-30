@@ -11,8 +11,8 @@
                 <img class="violetStar" src="Content/images/starViolet.png" alt="Yellow star">
             </div>
             <h1>B r a v o !</h1>
-            <p>Votre score est de : </p>
-            
+            <p>Votre score est de : <?= $_SESSION['score'] ?></p>
+
             <div class="ButtonSubmitDiv">
                 <button type="submit" id="sign_up" name="submit" class="btnSubmit"><a id="sign_up" href="?controller=themes&action=retour_niveaux">Retour aux niveaux</a></button>
             </div>

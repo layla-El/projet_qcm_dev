@@ -7,10 +7,12 @@ class Controller_themes extends Controller
         $this->action_afficher_themes();
     }
 
+
+    
     public function action_afficher_themes()  // afficher la page d'acceuil des themes
     {
         $m = Model::get_model();
-        $data = ["themes" => $m->get_traitement_themes()];
+        $data = ["themes" => $m->get_afficher_themes()];
         $this->render("themes", $data);
     }
 
@@ -35,6 +37,9 @@ class Controller_themes extends Controller
 
         $this->render("niveau", $data);
     }
+
+
+
 
     public function action_retour_niveaux()
     {
