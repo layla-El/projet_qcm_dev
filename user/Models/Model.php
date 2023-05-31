@@ -127,7 +127,7 @@ class Model
         return $r->fetchAll(PDO::FETCH_OBJ);
     }
 
-    
+
 
 
     // TRAITEMENT SCORE  //
@@ -144,4 +144,17 @@ class Model
 
         return $r->fetch(PDO::FETCH_OBJ);
     }
+
+
+
+    // AFFICHER PROFIL ET SCORE //
+
+    public function get_afficher_profil($id_utilisateur)
+    {
+        $r = $this->bd->prepare("SELECT score FROM `choix` WHERE id_utilisateur = :id_utilisateur AND niveau = 'Débutant'");
+        $r->bindParam(":id_utilisateur", $id_utilisateur);
+        $r->execute();
+        return $r->fetch(PDO::FETCH_OBJ);
+    }
+
 }
