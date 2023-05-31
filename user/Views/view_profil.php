@@ -4,7 +4,9 @@
 <div class="container">
 
 <div class="imgProfil"><img src="Content/images/profil.png" alt=""></div>
-<h3> <?= $_SESSION['prenom'] . $_SESSION['nom']?></h3>
+<h3> <?= $_SESSION['prenom'] . $_SESSION['name']?></h3>
+<h3> <?= $_SESSION['id_utilisateur']?></h3>
+
 
 
 <main id="mainProfil">

@@ -11,12 +11,13 @@ class Controller_score extends Controller
     {
         $m = Model::get_model();
 
+        $id_theme = $_SESSION["id_theme"];
+        $niveau = $_SESSION['niveau'];
+        $id_utilisateur = $_SESSION['id_utilisateur'];
         $score = trim(htmlspecialchars($_POST['score']));
-        $m->get_traitement_score($score);
+
+        $m->get_traitement_score($score, $niveau, $id_theme, $id_utilisateur);
+
         header("Location: ?controller=profil&action=afficher_profil");
     }
-
-
-    
-
 }

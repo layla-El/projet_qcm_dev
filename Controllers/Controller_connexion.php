@@ -7,10 +7,14 @@ class Controller_connexion extends Controller
         $this->action_afficher_connexion();
     }
 
+
+
     public function action_afficher_connexion()  // afficher la page de connexion
     {
         $this->render("connexion");
     }
+
+
 
     public function action_traitement_connexion()
     {
@@ -22,10 +26,13 @@ class Controller_connexion extends Controller
             if ($user) {
                 $nom = $user->nom;
                 $prenom = $user->prenom;
+                $id_utilisateur = $user->id_utilisateur;
                 $role = $user->role;
+
 
                 $_SESSION['name'] = $nom;
                 $_SESSION['prenom'] = $prenom;
+                $_SESSION['id_utilisateur'] = $id_utilisateur;
                 $_SESSION['role'] = $role;
           
 

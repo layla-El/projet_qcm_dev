@@ -20,6 +20,7 @@ class Controller_question extends Controller
         $id_questions = $m->get_id_questions($id_theme, $niveau);
 
         $_SESSION["id_questions"] = $id_questions;
+        $_SESSION['niveau'] = $niveau;
         $_SESSION['score'] = 0;
 
         $cpt = 0;
@@ -36,15 +37,13 @@ class Controller_question extends Controller
     {
         $m = Model::get_model();
 
+       
         $liste_questions = $_SESSION["id_questions"];
         $cpt = $_SESSION["cpt"];
 
 
-
         $id_theme = $_SESSION["id_theme"];
-
         $id_question = $liste_questions[$cpt]->id_question;
-
 
         $libelle_question = $m->get_afficher_une_question($id_question);
         $libelle_reponse = $m->get_afficher_une_reponse($id_question);
@@ -54,26 +53,18 @@ class Controller_question extends Controller
         $data = [
             'libelle_question' => $libelle_question,
             'libelle_reponse' => $libelle_reponse,
-            'id_theme' => $id_theme
+            'id_theme' => $id_theme,
         ];
 
-        $type_reponse = (int) $_POST['selected_reponse'];
-        $_SESSION['score'] = $type_reponse;
-        echo "Valeur de score dans la session : " . $_SESSION['score'];
-        echo "Type de réponse : " . $type_reponse;
-
-        $_SESSION['selections'][] = $type_reponse;
-        echo "Valeurs sélectionnées : ";
-
-        foreach ($_SESSION['selections'] as $selection) {
-            echo $selection . " ";
+        // Enregistrer le type de réponse sélectionné
+        if (isset($_POST['selected_reponse'])) {
+            $selectedAnswer = (int)$_POST['selected_reponse'];
+            $_SESSION['selections'][] = $selectedAnswer;
+            $_SESSION['score'] = $selectedAnswer;
         }
 
-        // Additionner les valeurs sélectionnées
-        $total = 0;
-        foreach ($_SESSION['selections'] as $selection) {
-            $total += $selection;
-        }
+        // Calculer le total des réponses sélectionnées
+        $total = array_sum($_SESSION['selections'] ?? []);
 
         $cpt++;
         $_SESSION["cpt"] = $cpt;

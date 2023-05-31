@@ -64,7 +64,7 @@ class Model
     }
 
 
-    
+
 
     // traitement_questions_et_reponses_par_theme_et_niveau //
 
@@ -77,7 +77,7 @@ class Model
         return $r->fetchAll(PDO::FETCH_OBJ);
     }
 
-    
+
 
 
     public function get_afficher_une_question($id_question)
@@ -94,16 +94,16 @@ class Model
 
     public function get_afficher_une_reponse($id_question)
     {
-         // - une requete pour récupérer les réponses
-         $r = $this->bd->prepare("SELECT libelle_reponse, `type` FROM reponses WHERE id_question = :id_question");
-         $r->bindParam(":id_question", $id_question);
-         $r->execute();
-         return $r->fetchAll(PDO::FETCH_OBJ);
+        // - une requete pour récupérer les réponses
+        $r = $this->bd->prepare("SELECT libelle_reponse, `type` FROM reponses WHERE id_question = :id_question");
+        $r->bindParam(":id_question", $id_question);
+        $r->execute();
+        return $r->fetchAll(PDO::FETCH_OBJ);
     }
 
 
 
-    
+
 
     // RETOUR VERS NIVEAUX // 
 
@@ -127,18 +127,21 @@ class Model
         return $r->fetchAll(PDO::FETCH_OBJ);
     }
 
+    
+
 
     // TRAITEMENT SCORE  //
 
 
-    public function get_traitement_score($score)
+    public function get_traitement_score($score, $niveau, $id_theme, $id_utilisateur)
     {
-
-        $r = $this->bd->prepare("INSERT INTO `choix` (score) VALUES (:score)");
+        $r = $this->bd->prepare("INSERT INTO `choix` (score, niveau, id_theme, id_utilisateur) VALUES (:score, :niveau, :id_theme, :id_utilisateur)");
         $r->bindParam(':score', $score);
+        $r->bindParam(':niveau', $niveau);
+        $r->bindParam(':id_theme', $id_theme);
+        $r->bindParam(':id_utilisateur', $id_utilisateur);
         $r->execute();
 
         return $r->fetch(PDO::FETCH_OBJ);
     }
-
 }
