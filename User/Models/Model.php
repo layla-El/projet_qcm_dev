@@ -34,7 +34,7 @@ class Model
 
     // THEMES //
 
-    public function get_traitement_themes()
+    public function get_afficher_themes()
     {
         $r = $this->bd->prepare("SELECT id_theme, libelle_theme, image_theme FROM themes");
         $r->execute();
@@ -53,6 +53,8 @@ class Model
     }
 
 
+
+
     public function get_afficher_libelle_themes_par_niveaux($id_theme)
     {
         $r = $this->bd->prepare("SELECT DISTINCT libelle_theme FROM themes WHERE id_theme = :id_theme");
@@ -60,7 +62,10 @@ class Model
         $r->execute();
         return $r->fetch(PDO::FETCH_OBJ);
     }
-    
+
+
+
+
     // traitement_questions_et_reponses_par_theme_et_niveau //
 
     public function get_id_questions($id_theme, $niveau)
@@ -74,28 +79,82 @@ class Model
 
 
 
+
     public function get_afficher_une_question($id_question)
     {
         // - une requete pour récupérer le libelle de la 1ere question 
-        $r = $this->bd->prepare("SELECT libelle_question FROM questions WHERE id_question = :id_question");
+        $r = $this->bd->prepare("SELECT libelle_question, id_theme, niveau FROM questions WHERE id_question = :id_question");
         $r->bindParam(":id_question", $id_question);
         $r->execute();
         return $r->fetchAll(PDO::FETCH_OBJ);
     }
 
+
+
+
     public function get_afficher_une_reponse($id_question)
     {
-         // - une requete pour récupérer les réponses
-         $r = $this->bd->prepare("SELECT libelle_reponse, `type` FROM reponses WHERE id_question = :id_question");
-         $r->bindParam(":id_question", $id_question);
-         $r->execute();
-         return $r->fetchAll(PDO::FETCH_OBJ);
-    }
-    public function get_type_reponse($type_reponse)
-    {
-        $r = $this->bd->prepare("SELECT `type` FROM reponses WHERE id_reponse = :id_reponse");
-        $r->bindParam(":id_reponse", $type_reponse);
+        // - une requete pour récupérer les réponses
+        $r = $this->bd->prepare("SELECT libelle_reponse, `type` FROM reponses WHERE id_question = :id_question");
+        $r->bindParam(":id_question", $id_question);
         $r->execute();
-        return $r->fetch(PDO::FETCH_OBJ)->type;
+        return $r->fetchAll(PDO::FETCH_OBJ);
     }
+
+
+
+
+
+    // RETOUR VERS NIVEAUX // 
+
+
+    public function get_retour_niveaux_theme($id_theme)
+    {
+        $r = $this->bd->prepare("SELECT libelle_theme FROM themes WHERE id_theme = :id_theme");
+        $r->bindParam(":id_theme", $id_theme);
+        $r->execute();
+        return $r->fetch(PDO::FETCH_OBJ);
+    }
+
+
+
+
+    public function get_retour_niveaux_niveaux($id_theme)
+    {
+        $r = $this->bd->prepare("SELECT DISTINCT niveau FROM questions WHERE id_theme = :id_theme");
+        $r->bindParam(":id_theme", $id_theme);
+        $r->execute();
+        return $r->fetchAll(PDO::FETCH_OBJ);
+    }
+
+
+
+
+    // TRAITEMENT SCORE  //
+
+
+    public function get_traitement_score($score, $niveau, $id_theme, $id_utilisateur)
+    {
+        $r = $this->bd->prepare("INSERT INTO `choix` (score, niveau, id_theme, id_utilisateur) VALUES (:score, :niveau, :id_theme, :id_utilisateur)");
+        $r->bindParam(':score', $score);
+        $r->bindParam(':niveau', $niveau);
+        $r->bindParam(':id_theme', $id_theme);
+        $r->bindParam(':id_utilisateur', $id_utilisateur);
+        $r->execute();
+
+        return $r->fetch(PDO::FETCH_OBJ);
+    }
+
+
+
+    // AFFICHER PROFIL ET SCORE //
+
+    public function get_afficher_profil($id_utilisateur)
+    {
+        $r = $this->bd->prepare("SELECT score FROM `choix` WHERE id_utilisateur = :id_utilisateur AND niveau = 'Débutant'");
+        $r->bindParam(":id_utilisateur", $id_utilisateur);
+        $r->execute();
+        return $r->fetch(PDO::FETCH_OBJ);
+    }
+
 }

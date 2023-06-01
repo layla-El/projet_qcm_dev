@@ -36,6 +36,7 @@
         exit("Error 404 : not found");
     }
 
+    require_once 'Utils/footer.php';
     ?>
 </body>
 

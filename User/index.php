@@ -3,11 +3,10 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Index</title>
+    <title>QCM</title>
     <script src="Content/script.js" defer></script>
     <link rel="stylesheet" type="text/css" href="Content/style.css">
 </head>
-
 <body>
     <?php
     session_start();
@@ -15,7 +14,7 @@
     require_once 'Models/Model.php';
     require_once 'Utils/header.php';
 
-    $controllers = ["themes", "question", "reponse", "niveau"];
+    $controllers = ["themes", "question", "reponse", "niveau", "profil", "score"];
     $controller_default = "themes";
 
     if (isset($_GET['controller']) and in_array($_GET['controller'], $controllers)) {
@@ -37,5 +36,4 @@
     require_once 'Utils/footer.php';
     ?>
 </body>
-
 </html>
