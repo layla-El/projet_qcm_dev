@@ -12,11 +12,14 @@ class Controller_profil extends Controller
         $m = Model::get_model();
         $id_utilisateur = $_SESSION['id_utilisateur'];
 
-        $data = $m->get_afficher_profil($id_utilisateur);
+        $data = [
+            'score' => $m->get_afficher_profil($id_utilisateur)
+        ];
     
-        $this->render("profil", $data);
+        $this->render("profil", $data );
     }
 
-
+    // SELECT * FROM `choix` ORDER BY `date` DESC LIMIT 1; 
+    // SELECT * FROM `choix` ORDER BY `date` LIMIT 1; 
 
 }

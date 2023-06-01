@@ -6,19 +6,27 @@
     <div class="imgProfil"><img src="Content/images/profil.png" alt=""></div>
     <h3> <?= $_SESSION['prenom'] . $_SESSION['name'] ?></h3>
     <h3> <?= $_SESSION['id_utilisateur'] ?></h3>
-    <p>Score:<?= $data->score ?></p>
-
 
 
     <main id="mainProfil">
 
         <div>
+
             <h1>HTML</h1>
+
             <section>
-                <div class="btnProfil">Débutant</div>
-                <div class="btnProfil">Intérmédiaire</div>
-                <div class="btnProfil">Avancé</div>
+                <div>
+                    <div class="btnProfil">Débutant</div>
+                    <p>Score:<?= $score->score ?></p>
+                </div>
+                <div>
+                    <div class="btnProfil">Intérmédiaire</div>
+                </div>
+                <div>
+                    <div class="btnProfil">Avancé</div>
+                </div>
             </section>
+
         </div>
 
 

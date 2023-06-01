@@ -4,10 +4,12 @@
 <!-- Affichage de la question actuelle -->
 
 <div class="containerQuestions">
-
+    <div id="chargingBar">
+        <div id="chargingMove"></div>
+    </div>
     <main id="mainQuestions">
 
-    
+
         <?php foreach ($libelle_question as $l) : ?>
             <h3><?= htmlentities($l->libelle_question) ?></h3>
         <?php endforeach; ?>

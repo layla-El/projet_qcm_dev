@@ -4,7 +4,7 @@
      <div class="container">
 
          <?php foreach ($libelle_theme as $l) : ?>
-             <h1><?= $l ?></h1>
+             <h2><?= $l ?></h2>
          <?php endforeach; ?>
          <main id="mainNiveaux">
 

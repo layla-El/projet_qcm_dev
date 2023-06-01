@@ -151,7 +151,7 @@ class Model
 
     public function get_afficher_profil($id_utilisateur)
     {
-        $r = $this->bd->prepare("SELECT score FROM `choix` WHERE id_utilisateur = :id_utilisateur AND niveau = 'Débutant'");
+        $r = $this->bd->prepare("SELECT score FROM `choix` WHERE id_utilisateur = :id_utilisateur AND niveau = 'Débutant' AND id_theme = '1'");
         $r->bindParam(":id_utilisateur", $id_utilisateur);
         $r->execute();
         return $r->fetch(PDO::FETCH_OBJ);
