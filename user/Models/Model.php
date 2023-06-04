@@ -13,10 +13,13 @@ class Model
     private function __construct()
     {  // Fonction qui sert à faire le lien avec la BDD
 
-        $dsn = "mysql:host=localhost;dbname=qcm_db";   // Coordonnées de la BDD
-        $login = "root";   // Identifiant d'accès à la BDD
-        $mdp = ""; // Mot de passe d'accès à la BDD
-        $this->bd = new PDO($dsn, $login, $mdp);
+        $config = require __DIR__ . '/../config/config.php';
+
+        $dsn = $config['dsn'];
+        $username = $config['username'];
+        $password = $config['password'];
+
+        $this->bd = new PDO($dsn, $username, $password);
         $this->bd->query("SET NAMES 'utf8'");
         $this->bd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
@@ -97,12 +100,59 @@ class Model
         return $r->fetchAll(PDO::FETCH_OBJ);
     }
 
-    // public function get_type()
+    //RETOUR A LA PAGE NIVEAU
+    public function get_retour_niveaux_theme($id_theme)
+    {
+        $r = $this->bd->prepare("SELECT libelle_theme FROM themes WHERE id_theme = :id_theme");
+        $r->bindParam(":id_theme", $id_theme);
+        $r->execute();
+        return $r->fetch(PDO::FETCH_OBJ);
+    }
+
+    public function get_retour_niveaux_niveaux($id_theme)
+    {
+        $r = $this->bd->prepare("SELECT DISTINCT niveau FROM questions WHERE id_theme = :id_theme");
+        $r->bindParam(":id_theme", $id_theme);
+        $r->execute();
+        return $r->fetchAll(PDO::FETCH_OBJ);
+    }
+
+
+
+    //Insérer les elements qu'on veut afficher sur le profil
+    public function get_insert_score($id_theme, $id_utilisateur, $score, $niveau)
+    {
+        $r = $this->bd->prepare("INSERT INTO `choix` (`id_theme`,`id_utilisateur`, `score`, `niveau`) 
+        VALUES (:id_theme, :id_utilisateur, :score, :niveau)");
+
+        //liaison des parametres 
+        $r->bindParam(":id_theme", $id_theme);
+        $r->bindParam(":id_utilisateur", $id_utilisateur);
+        $r->bindParam(":score", $score);
+        $r->bindParam(":niveau", $niveau);
+        $r->execute();
+        return $r->fetchAll(PDO::FETCH_OBJ);
+    }
+
+    // //afficher le dernier score correspondant à l'utilisateur connecté 
+    // public function get_last_score($id_utilisateur)
     // {
-    //     //Récupérer le type de la réponse 
-    //     $r = $this->bd->prepare("SELECT `type` FROM reponses WHERE `type`= :type_reponse");
-    //     $r->bindParam(":type_reponse", $data_type);
+    //     $r = $this->bd->prepare("SELECT score FROM choix WHERE id_utilisateur = :id_utilisateur ORDER BY id_choix DESC LIMIT 1");
+    //     $r->bindParam(":id_utilisateur", $id_utilisateur);
     //     $r->execute();
-    //     return $r->fetchAll(PDO::FETCH_OBJ);
+    //     return $r->fetch(PDO::FETCH_OBJ);
     // }
+    public function get_last_scores($id_utilisateur)
+    {
+        $r = $this->bd->prepare("
+        SELECT id_theme, score, niveau
+        FROM choix 
+        WHERE id_utilisateur = :id_utilisateur 
+        GROUP BY id_theme, niveau
+        ORDER BY id_choix DESC
+    ");
+        $r->bindParam(":id_utilisateur", $id_utilisateur);
+        $r->execute();
+        return $r->fetchAll(PDO::FETCH_ASSOC);
+    }
 }

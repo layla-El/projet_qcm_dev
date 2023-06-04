@@ -22,9 +22,11 @@ class Controller_connexion extends Controller
             if ($user) {
                 $nom = $user->nom;
                 $prenom = $user->prenom;
+                $id_utilisateur = $user->id_utilisateur;
                 $role = $user->role;
 
                 $_SESSION['nom'] = $nom;
+                $_SESSION['id_utilisateur'] = $id_utilisateur;
                 $_SESSION['prenom'] = $prenom;
                 $_SESSION['role'] = $role;
                 // echo $nom . " " . $prenom . " " . $role . " " . "<br>";

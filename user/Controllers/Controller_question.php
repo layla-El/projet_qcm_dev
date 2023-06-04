@@ -12,8 +12,12 @@ class Controller_question extends Controller
     {
         $m = Model::get_model();
 
+
+
         $id_theme = $_GET['id_theme'];
         $niveau = $_GET['niveau'];
+        //Stocker le niveau dans la $_SESSION
+        $_SESSION['niveau'] = $niveau;
 
         $id_questions = $m->get_id_questions($id_theme, $niveau);
 

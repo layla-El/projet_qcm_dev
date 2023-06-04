@@ -242,9 +242,46 @@ img {
     width: 90px;
 }
 
-.violetStar{
+.violetStar {
     display: none;
 }
+
+/* PROFIL */
+
+#mainProfil {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.imgProfil {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: aquamarine;
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+}
+
+section {
+    display: flex;
+}
+
+.btnProfil {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    width: 100px;
+    height: 30px;
+    background-color: var(--buttonGreen);
+    border: none;
+    color: var(--textColor);
+}
+
+
 
 
 
@@ -303,10 +340,10 @@ footer>div>a>p {
 
     .containerQuestions {
         height: 100vh;
-    
+
     }
 
-    .violetStar{
+    .violetStar {
         display: inline-block;
     }
 }

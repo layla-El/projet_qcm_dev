@@ -7,7 +7,7 @@ class Controller_niveau extends Controller
 
         $this->action_niveau();
     }
-    
+
     public function action_niveau()
     {
         $m = Model::get_model();
@@ -18,6 +18,8 @@ class Controller_niveau extends Controller
             "libelle_theme" => $libelle_theme, // Utilisation de la variable $libelle_theme
             "id_theme" => $id_theme
         ];
+
+
         $this->render("niveau", $data);
     }
 }
