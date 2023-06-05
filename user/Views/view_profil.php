@@ -15,37 +15,49 @@
         <h1>HTML</h1>
         <section>
             <?php foreach ($lastScores as $score) : ?>
-                <div class="btnProfil">
-                    <?= $score['niveau']; ?> : <?= $score['score']; ?>
-                </div>
+                <?php if ($score['id_theme'] == 1) : ?>
+                    <div class="btnProfil">
+                        <?= $score['niveau']; ?> : <?= $score['score']; ?>
+                    </div>
+                <?php endif; ?>
             <?php endforeach; ?>
         </section>
 
 
         <h1>CSS</h1>
-
         <section>
-            <div class="btnProfil">Débutant</div>
-            <div class="btnProfil">Intérmédiaire</div>
-            <div class="btnProfil">Avancé</div>
+            <?php foreach ($lastScores as $score) : ?>
+                <?php if ($score['id_theme'] == 2) : ?>
+                    <div class="btnProfil">
+                        <?= $score['niveau']; ?> : <?= $score['score']; ?>
+                    </div>
+                <?php endif; ?>
+            <?php endforeach; ?>
         </section>
 
 
         <h1>JS</h1>
-
         <section>
-            <div class="btnProfil">Débutant</div>
-            <div class="btnProfil">Intérmédiaire</div>
-            <div class="btnProfil">Avancé</div>
+            <?php foreach ($lastScores as $score) : ?>
+                <?php if ($score['id_theme'] == 3) : ?>
+                    <div class="btnProfil">
+                        <?= $score['niveau']; ?> : <?= $score['score']; ?>
+                    </div>
+                <?php endif; ?>
+            <?php endforeach; ?>
         </section>
 
 
         <h1>PHP</h1>
 
         <section>
-            <div class="btnProfil">Débutant</div>
-            <div class="btnProfil">Intérmédiaire</div>
-            <div class="btnProfil">Avancé</div>
+            <?php foreach ($lastScores as $score) : ?>
+                <?php if ($score['id_theme'] == 4) : ?>
+                    <div class="btnProfil">
+                        <?= $score['niveau']; ?> : <?= $score['score']; ?>
+                    </div>
+                <?php endif; ?>
+            <?php endforeach; ?>
         </section>
 
 
