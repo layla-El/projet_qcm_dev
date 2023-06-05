@@ -7,7 +7,7 @@ class Controller_score extends Controller
     }
 
 
-    public function action_traitement_score()
+    public function action_insertion_score()
     {
         $m = Model::get_model();
 
@@ -16,8 +16,9 @@ class Controller_score extends Controller
         $id_utilisateur = $_SESSION['id_utilisateur'];
         $score = trim(htmlspecialchars($_POST['score']));
 
-        $m->get_traitement_score($score, $niveau, $id_theme, $id_utilisateur);
+        $m->get_insertion_score($score, $niveau, $id_theme, $id_utilisateur);
 
         header("Location: ?controller=profil&action=afficher_profil");
     }
 }
+

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Index</title>
+    <title>QCM</title>
     <script src="Content/script.js" defer></script>
     <link rel="stylesheet" type="text/css" href="Content/style.css">
 
@@ -35,8 +35,6 @@
     } else {
         exit("Error 404 : not found");
     }
-
-    require_once 'Utils/footer.php';
     ?>
 </body>
 

@@ -133,7 +133,7 @@ class Model
     // TRAITEMENT SCORE  //
 
 
-    public function get_traitement_score($score, $niveau, $id_theme, $id_utilisateur)
+    public function get_insertion_score($score, $niveau, $id_theme, $id_utilisateur)
     {
         $r = $this->bd->prepare("INSERT INTO `choix` (score, niveau, id_theme, id_utilisateur) VALUES (:score, :niveau, :id_theme, :id_utilisateur)");
         $r->bindParam(':score', $score);
@@ -151,7 +151,7 @@ class Model
 
     public function get_afficher_profil($id_utilisateur)
     {
-        $r = $this->bd->prepare("SELECT score FROM `choix` WHERE id_utilisateur = :id_utilisateur AND niveau = 'Débutant'");
+        $r = $this->bd->prepare("SELECT * FROM `choix` WHERE id_utilisateur = :id_utilisateur AND niveau ='Débutant' ORDER BY `date` DESC LIMIT 1;");
         $r->bindParam(":id_utilisateur", $id_utilisateur);
         $r->execute();
         return $r->fetch(PDO::FETCH_OBJ);

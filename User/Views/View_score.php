@@ -1,9 +1,5 @@
     <!-- SCORE -->
     <!-- MAIN -->
-
-
-
-
         <main id="mainScore">
             <div class="imagesScore">
                 <img class="violetStar" src="Content/images/starViolet.png" alt="Yellow star">
@@ -18,11 +14,10 @@
             <div class="ButtonSubmitDiv">
                 <button type="submit" id="sign_up" name="submit" class="btnSubmit"><a id="sign_up" href="?controller=themes&action=retour_niveaux">Retour aux niveaux</a></button>
             </div>
-            <form id="ScoreForm" action="?controller=score&action=traitement_score" method="post">
+            <form id="ScoreForm" action="?controller=score&action=insertion_score" method="post">
             <div class="ButtonSubmitDiv">
                 <button type="submit" id="score" name="score" value="<?= $total ?>" class="btnSubmit">Enregistrer mon score</button>
             </div>
         </form>
         </main>
-
     </div>
