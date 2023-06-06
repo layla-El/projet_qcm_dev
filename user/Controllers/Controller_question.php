@@ -48,7 +48,7 @@ class Controller_question extends Controller
         $libelle_question = $m->get_afficher_une_question($id_question);
         $libelle_reponse = $m->get_afficher_une_reponse($id_question);
 
-        echo '<p>cpt: ' . $cpt . 'id question: ' . $id_question . 'id theme: ' . $id_theme . '</p>';
+        // echo '<p>cpt: ' . $cpt . 'id question: ' . $id_question . 'id theme: ' . $id_theme . '</p>';
 
         $data = [
             'libelle_question' => $libelle_question,

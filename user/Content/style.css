@@ -54,10 +54,9 @@ a {
 
 h1 {
     font-family: 'sk_femme_fataleregular';
-    font-size: 12px;
+    font-size: 16px;
     letter-spacing: 10px;
     text-shadow: 22px 10px 7px #ECECEC;
-    width: 5%;
 }
 
 h2 {
@@ -69,7 +68,10 @@ h2 {
 }
 
 h3 {
+    text-transform: capitalize;
     text-align: center;
+    width: 90vw;
+    max-width: 600px;
 }
 
 
@@ -83,6 +85,16 @@ h3 {
     width: 200px;
     height: 30px;
     background-color: var(--buttonGreen);
+    border: none;
+    color: var(--textColor);
+    cursor: pointer;
+}
+.btnSubmitScore{
+    border-radius: 15px;
+    text-align: center;
+    width: 200px;
+    height: 30px;
+    background-color: var(--purpleShade);
     border: none;
     color: var(--textColor);
 }
@@ -126,13 +138,38 @@ header {
     height: 80px;
 }
 
-header div {
- display: flex;
- justify-content: space-between;
- padding-left: 20px;
- padding-right: 20px;
- align-items: center;
- width: 100%;
+header>div {
+    position : relative;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 20px;
+    align-items: center;
+    width: 100%;
+}
+
+
+/* ANIMATION RULES */
+
+
+.rules {
+    padding: 20px;
+    width: 60vw;
+    position: absolute;
+    right: 20px;
+    top: 80px;
+    border: 1px solid white;
+    border-radius: 5%;
+    background-color: rgba(65, 58, 122, 0.928);
+    text-align: justify;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+  
+  .rules.visible {
+    opacity: 1;
+    visibility: visible;
 }
 
 
@@ -210,7 +247,7 @@ img {
 /* QUESTIONS */
 
 
-.mainQuestions {
+#mainQuestions {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -290,6 +327,10 @@ img {
     display: none;
 }
 
+#ScoreForm{
+    padding-bottom: 20px;
+}
+
 
 
 
@@ -297,10 +338,11 @@ img {
 
 #mainProfil {
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
-    flex-direction: row;
     align-items: center;
     justify-content: center;
+    padding-bottom: 50%;
 }
 
 #mainProfil>div {
@@ -314,14 +356,21 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: aquamarine;
+    background-color: var(--purpleShade);
     border-radius: 50%;
     height: 100px;
     width: 100px;
 }
 
-section {
+#mainProfil div section>div {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10%;
+}
+
+#mainProfil section{
+    padding: 15%;
 }
 
 .btnProfil {
@@ -329,8 +378,9 @@ section {
     justify-content: center;
     align-items: center;
     border-radius: 15px;
-    width: 100px;
-    height: 30px;
+    width: 50vw;
+    max-width: 200px;
+    height: 20px;
     background-color: var(--buttonGreen);
     border: none;
     color: var(--textColor);
