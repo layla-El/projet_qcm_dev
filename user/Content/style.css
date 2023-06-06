@@ -89,7 +89,8 @@ h3 {
     color: var(--textColor);
     cursor: pointer;
 }
-.btnSubmitScore{
+
+.btnSubmitScore {
     border-radius: 15px;
     text-align: center;
     width: 200px;
@@ -139,7 +140,7 @@ header {
 }
 
 header>div {
-    position : relative;
+    position: relative;
     display: flex;
     justify-content: space-between;
     padding-left: 20px;
@@ -166,8 +167,8 @@ header>div {
     visibility: hidden;
     transition: opacity 0.3s, visibility 0.3s;
 }
-  
-  .rules.visible {
+
+.rules.visible {
     opacity: 1;
     visibility: visible;
 }
@@ -327,7 +328,7 @@ img {
     display: none;
 }
 
-#ScoreForm{
+#ScoreForm {
     padding-bottom: 20px;
 }
 
@@ -369,7 +370,7 @@ img {
     padding: 10%;
 }
 
-#mainProfil section{
+#mainProfil section {
     padding: 15%;
 }
 

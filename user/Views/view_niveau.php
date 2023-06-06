@@ -6,6 +6,7 @@
          <?php foreach ($libelle_theme as $l) : ?>
              <h2><?= $l ?></h2>
          <?php endforeach; ?>
+         
          <main id="mainNiveaux">
 
 

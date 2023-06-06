@@ -91,7 +91,6 @@ class Model
 
 
 
-
     public function get_afficher_une_reponse($id_question)
     {
         // - une requete pour récupérer les réponses
@@ -99,6 +98,17 @@ class Model
         $r->bindParam(":id_question", $id_question);
         $r->execute();
         return $r->fetchAll(PDO::FETCH_OBJ);
+    }
+
+
+
+    public function get_theme_libelle($id_theme)
+    {
+        // Une requête pour récupérer le libellé du thème
+        $r = $this->bd->prepare("SELECT libelle_theme FROM themes WHERE id_theme = :id_theme");
+        $r->bindParam(":id_theme", $id_theme);
+        $r->execute();
+        return $r->fetch(PDO::FETCH_OBJ);
     }
 
 

@@ -9,6 +9,7 @@
     </div>
     <main id="mainQuestions">
 
+        <h3><?= htmlentities($libelle_theme->libelle_theme) ?></h3>
 
         <?php foreach ($libelle_question as $l) : ?>
             <h3><?= htmlentities($l->libelle_question) ?></h3>
