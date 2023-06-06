@@ -7,7 +7,7 @@
     --validateGrey: rgb(97, 97, 126);
     --purpleShade: rgb(93, 56, 130);
     --fadeGreen: rgba(26, 87, 37, 0.606);
-    --Yelow: rgb(243, 215, 3);
+        --Yelow: rgb(243, 215, 3);
 
 }
 
@@ -283,6 +283,7 @@ img {
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    padding-bottom: 200px;
 }
 
 #mainProfil>div {

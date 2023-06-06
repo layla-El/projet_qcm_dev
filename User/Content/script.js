@@ -23,6 +23,8 @@ document.getElementById("formChoix").addEventListener("submit", function (event)
 // Récupérer les éléments HTML de la barre de progression
 const progressBar = document.getElementById('chargingMove');
 const progressBarContainer = document.getElementById('chargingBar');
+progressBar.style.transition = 'background-color 5s ease';
+
 
 // Définir la durée totale en millisecondes
 const dureeTotale = 1200000;
@@ -39,10 +41,10 @@ function mettreAJourBarreProgression() {
     progressBar.style.width = pourcentage + '%';
 
     if (tempsEcoule >= dureeTotale - 300000) {
+        setTimeout(() => {
         // Modifier la couleur de la barre de progression en rouge
-        progressBar.style.backgroundColor = 'red';
+        progressBar.style.backgroundColor = 'red'; }, 0);
     }
-
 
     // Vérifier si le temps écoulé a atteint la durée totale
     if (tempsEcoule >= dureeTotale) {
