@@ -3,7 +3,7 @@ class Controller_score extends Controller
 {
     public function action_default()
     {
-        $this->action_traitement_score();
+        $this->action_insertion_score();
     }
 
 

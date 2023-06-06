@@ -8,8 +8,6 @@ class Controller_question extends Controller
     }
 
 
-
-
     public function action_id_questions()
     {
         $m = Model::get_model();
@@ -28,9 +26,6 @@ class Controller_question extends Controller
 
         $this->render("question");
     }
-
-
-
 
 
     public function action_afficher_une_question()
