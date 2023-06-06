@@ -11,13 +11,8 @@ class Controller_profil extends Controller
     {
         $m = Model::get_model();
         $id_utilisateur = $_SESSION['id_utilisateur'];
+        $lastScores = $m->get_last_scores($id_utilisateur);
 
-        $data = [
-            'score1'=> $m->get_afficher_profil($id_utilisateur)
-            // 'score2'=> $m->get_afficher_profil2($id_utilisateur)
-            // 'score3'=> $m->get_afficher_profil3($id_utilisateur)
-        ];
-    
-        $this->render("profil", $data );
+        $this->render("profil", ['lastScores' => $lastScores]);
     }
 }

@@ -149,12 +149,27 @@ class Model
 
     // AFFICHER PROFIL ET SCORE //
 
-    public function get_afficher_profil($id_utilisateur)
+    public function get_last_scores($id_utilisateur)
     {
-        $r = $this->bd->prepare("SELECT * FROM `choix` WHERE id_utilisateur = :id_utilisateur AND niveau ='Débutant' ORDER BY `date` DESC LIMIT 1;");
+        $r = $this->bd->prepare(" 
+        SELECT c.id_theme, c.score, c.niveau
+FROM choix c
+WHERE c.id_utilisateur = :id_utilisateur
+AND NOT EXISTS (
+    SELECT 1
+    FROM choix c2
+    WHERE c2.id_theme = c.id_theme
+    AND c2.niveau = c.niveau
+    AND c2.id_choix > c.id_choix
+)
+
+    ");
+
         $r->bindParam(":id_utilisateur", $id_utilisateur);
+        // var_dump($r->queryString);
         $r->execute();
-        return $r->fetch(PDO::FETCH_OBJ);
+        return $r->fetchAll(PDO::FETCH_ASSOC);
     }
+
 
 }
