@@ -2,22 +2,19 @@
 <!-- QUESTIONS -->
 
 <!-- Affichage de la question actuelle -->
-<div class="containerQuestions">
+
     <div id="chargingBar">
         <div id="chargingMove"></div>
     </div>
-    <main id="mainQuestions">
-
-<div class="containerQuestions">
 
     <main id="mainQuestions">
 
-    
+    <div class="containerQuestions">
         <?php foreach ($libelle_question as $l) : ?>
             <h3><?= htmlentities($l->libelle_question) ?></h3>
         <?php endforeach; ?>
 
-        <form action="?controller=question&action=afficher_une_question" id="formChoix" method="POST">
+        <form action="?controller=question&action=afficher_une_question"onclick="return confirm('Veuillez selectionner une réponse.');" id="formChoix" method="POST">
             <?php foreach ($libelle_reponse as $reponse) : ?>
                 <div class="choix">
                     <label>
@@ -42,7 +39,7 @@ const progressBar = document.getElementById('chargingMove');
 const progressBarContainer = document.getElementById('chargingBar');
 
 // Définir la durée totale en millisecondes
-const dureeTotale = 30000; // Exemple : 1 minute
+const dureeTotale = 1200000; 
 
 // Définir le temps écoulé initial
 let tempsEcoule = 0;
@@ -60,7 +57,7 @@ function mettreAJourBarreProgression() {
     // Arrêter la progression
     clearInterval(timer);
     // Faire quelque chose lorsque le temps est écoulé (par exemple, afficher un message)
-    console.log("Temps écoulé !");
+    document.getElementById('formChoix').submit();
   }
 
   // Augmenter le temps écoulé
@@ -68,6 +65,6 @@ function mettreAJourBarreProgression() {
 }
 
 // Mettre à jour la barre de progression toutes les secondes
-const timer = setInterval(mettreAJourBarreProgression, 1000); // Exemple : mettre à jour toutes les 1 seconde (1000 millisecondes)
+const timer = setInterval(mettreAJourBarreProgression, 10); // Exemple : mettre à jour toutes les 1 seconde (1000 millisecondes)
 
     </script>
