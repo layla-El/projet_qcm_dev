@@ -36,7 +36,7 @@
         </section>
 
 
-        <h1>JS</h1>
+        <h1>PHP</h1>
         <section>
             <?php foreach ($lastScores as $score) : ?>
                 <?php if ($score['id_theme'] == 3) : ?>
@@ -48,7 +48,7 @@
         </section>
 
 
-        <h1>PHP</h1>
+        <h1>JS</h1>
 
         <section>
             <?php foreach ($lastScores as $score) : ?>
@@ -58,7 +58,8 @@
                     </div>
                 <?php endif; ?>
             <?php endforeach; ?>
-        </section>
+        </section> 
+        
 
 
 
