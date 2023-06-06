@@ -213,6 +213,10 @@ main>div>a>p {
     border-radius: 50%;
 }
 
+.categories-completed {
+    border-color: green;
+}
+
 .categories:hover {
     background-color: var(--fadeGreen);
 }
