@@ -214,7 +214,7 @@ main>div>a>p {
 }
 
 .categories-completed {
-    border-color: green;
+    border-color: var(--validateGreen);
 }
 
 .categories:hover {

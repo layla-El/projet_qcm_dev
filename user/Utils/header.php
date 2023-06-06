@@ -3,7 +3,7 @@
    <header>
        <div>
 
-           <img src="Content/images/logo2.png" alt="logo">
+           <a href="?controller=themes&action=themes"><img src="Content/images/logo2.png" alt="logo"></a>
 
            <div>
                <button class="buttonHeader">About</button>

@@ -1,16 +1,13 @@
    <!-- FOOTER -->
 
    <footer>
-            <div><a href="">
-                <div class=""><img src="Content/images/circle.png" alt=""></div>
-                <p></p></a>
-            </div>
-            <div><a href="">
-                <div class=""><img src="Content/images/polygon.png" alt=""></div>
-                <p></p></a>
-            </div>
-            <div><a href="">
-                <div class=""><img src="Content/images/star.png" alt=""></div>
-                <p></p></a>
-            </div>
-        </footer>
+       <div>
+               <div class=""><img src="Content/images/circle.png" alt=""></div>
+       </div>
+       <div>
+               <div class=""><img src="Content/images/polygon.png" alt=""></div>
+       </div>
+       <div>
+           <div class=""><img src="Content/images/star.png" alt=""></div>
+       </div>
+   </footer>
