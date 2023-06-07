@@ -7,7 +7,7 @@
     --validateGrey: rgb(97, 97, 126);
     --purpleShade: rgb(93, 56, 130);
     --fadeGreen: rgba(26, 87, 37, 0.606);
-        --Yelow: rgb(243, 215, 3);
+    --Yelow: rgb(243, 215, 3);
 
 }
 
@@ -18,6 +18,10 @@
         url('sk_Femme_fatale_Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+}
+
+* {
+    box-sizing: border-box;
 }
 
 body {
@@ -36,7 +40,12 @@ a {
     text-decoration: none;
     color: var(--textColor);
 }
-
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
 
 
@@ -44,15 +53,23 @@ a {
 
 h1 {
     font-family: 'sk_femme_fataleregular';
-    font-size: 30px;
-    text-align: center;
+    font-size: 16px;
+    letter-spacing: 10px;
+    text-shadow: 22px 10px 7px #ECECEC;
+}
+
+h2 {
+    font-family: 'sk_femme_fataleregular';
+    letter-spacing: 16px;
     text-transform: uppercase;
+    font-size: 20px;
     text-shadow: 29px 10px 1px rgba(255, 255, 255, 0.201);
-    padding-bottom: 2em;
 }
 
 h3 {
     text-align: center;
+    width: 90vw;
+    max-width: 600px;
 }
 
 
@@ -68,8 +85,18 @@ h3 {
     background-color: var(--buttonGreen);
     border: none;
     color: var(--textColor);
+    cursor: pointer;
 }
 
+.btnSubmitScore {
+    border-radius: 15px;
+    text-align: center;
+    width: 200px;
+    height: 30px;
+    background-color: var(--purpleShade);
+    border: none;
+    color: var(--textColor);
+}
 
 header button {
     all: unset;
@@ -88,7 +115,6 @@ header button:hover {
     border: 1px solid var(--Yelow);
     color: var(--Yelow);
 }
-
 
 
 
@@ -112,16 +138,38 @@ header {
     height: 80px;
 }
 
-header div {
- display: flex;
- justify-content: space-between;
- padding-left: 20px;
- padding-right: 20px;
- align-items: center;
- width: 100%;
+header>div {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 20px;
+    align-items: center;
+    width: 100%;
 }
 
+/* ANIMATION RULES */
 
+
+.rules {
+    padding: 20px;
+    width: 60vw;
+    position: absolute;
+    right: 20px;
+    top: 80px;
+    border: 1px solid white;
+    border-radius: 5%;
+    background-color: rgba(65, 58, 122, 0.928);
+    text-align: justify;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+.rules.visible {
+    opacity: 1;
+    visibility: visible;
+}
 
 
 
@@ -134,6 +182,7 @@ header div {
     justify-content: center;
     align-items: center;
     gap: 4em;
+    padding-top: 4em;
     padding-bottom: 100px;
 }
 
@@ -159,6 +208,10 @@ main>div>a>p {
     border-radius: 50%;
 }
 
+.categories-completed {
+    border-color: var(--validateGreen);
+}
+
 .categories:hover {
     background-color: var(--fadeGreen);
 }
@@ -166,12 +219,10 @@ main>div>a>p {
 .validate {
     border: 6px solid var(--validateGreen);
 }
-
 img {
     width: 50px;
     height: auto;
 }
-
 
 
 
@@ -184,7 +235,7 @@ img {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 4em;
+    gap: 5em;
 }
 
 
@@ -193,7 +244,7 @@ img {
 /* QUESTIONS */
 
 
-.mainQuestions {
+#mainQuestions {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -272,6 +323,10 @@ img {
     display: none;
 }
 
+#ScoreForm {
+    padding-bottom: 20px;
+}
+
 
 
 
@@ -279,11 +334,11 @@ img {
 
 #mainProfil {
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
-    flex-direction: row;
     align-items: center;
     justify-content: center;
-    padding-bottom: 200px;
+    padding-bottom: 50%;
 }
 
 #mainProfil>div {
@@ -297,23 +352,32 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: aquamarine;
+    background-color: var(--purpleShade);
     border-radius: 50%;
     height: 100px;
     width: 100px;
 }
 
-section {
+#mainProfil div section>div {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10%;
 }
+
+#mainProfil section {
+    padding: 15%;
+}
+
 
 .btnProfil {
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 15px;
-    width: 150px;
-    height: 30px;
+    width: 50vw;
+    max-width: 200px;
+    height: 20px;
     background-color: var(--buttonGreen);
     border: none;
     color: var(--textColor);
@@ -349,19 +413,18 @@ footer>div>a>p {
 }
 
 
-
-
-
-
-
-
-
 /* MEDIA QUERIES DESKTOP */
 
 @media (min-width: 550px) {
 
     body {
         background-image: url("images/bgDesktop.jpg");
+    }
+
+    h1 {
+        font-size: 25px;
+        padding: 0px;
+        letter-spacing: 25px;
     }
 
     .choix {

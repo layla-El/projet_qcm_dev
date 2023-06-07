@@ -40,7 +40,21 @@ class Model
         $r->execute();
         return $r->fetchAll(PDO::FETCH_OBJ);
     }
+    public function has_completed_all_levels($id_theme, $id_utilisateur)
+{
+    $r = $this->bd->prepare("SELECT niveau 
+        FROM choix 
+        WHERE id_theme = :id_theme AND id_utilisateur = :id_utilisateur
+    ");
+    $r->bindParam(":id_theme", $id_theme);
+    $r->bindParam(":id_utilisateur", $id_utilisateur);
+    $r->execute();
+    $result = $r->fetchAll(PDO::FETCH_OBJ);
 
+    // Assurez-vous que l'utilisateur a des scores pour tous les niveaux (débutant, intermédiaire, avancé)
+    $levels = array_map(function($item) { return $item->niveau; }, $result);
+    return in_array('Débutant', $levels) && in_array('Intermédiaire', $levels) && in_array('Avancé', $levels);
+}
 
     // NIVEAUX //
 
@@ -78,6 +92,14 @@ class Model
     }
 
 
+    public function get_theme_libelle($id_theme)
+    {
+        // Une requête pour récupérer le libellé du thème
+        $r = $this->bd->prepare("SELECT libelle_theme FROM themes WHERE id_theme = :id_theme");
+        $r->bindParam(":id_theme", $id_theme);
+        $r->execute();
+        return $r->fetch(PDO::FETCH_OBJ);
+    }
 
 
     public function get_afficher_une_question($id_question)

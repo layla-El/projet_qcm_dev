@@ -12,6 +12,7 @@
 <body>
     <?php
     session_start();
+
     require_once 'Controllers/Controller.php';
     require_once 'Models/Model.php';
     require_once 'Utils/header.php';

@@ -1,3 +1,22 @@
+
+// Afficher les règles du jeu au clic du bouton About dans le Header
+
+const about = document.querySelector('.buttonHeader');
+const rules = document.querySelector('.rules');
+
+about.addEventListener("click", function() {
+    rules.classList.toggle('visible');
+  });
+  
+  document.addEventListener("click", function(event) {
+    if (!rules.contains(event.target) && event.target !== about) {
+      rules.classList.remove('visible');
+    }
+  });
+
+
+
+
 // Formulaire questions
 document.getElementById("formChoix").addEventListener("submit", function (event) {
     let selected = false; // Variable pour vérifier si une réponse a été sélectionnée
@@ -20,6 +39,8 @@ document.getElementById("formChoix").addEventListener("submit", function (event)
 });
 
 
+// CHARGING BAR
+
 // Récupérer les éléments HTML de la barre de progression
 const progressBar = document.getElementById('chargingMove');
 const progressBarContainer = document.getElementById('chargingBar');
@@ -27,7 +48,7 @@ progressBar.style.transition = 'background-color 5s ease';
 
 
 // Définir la durée totale en millisecondes
-const dureeTotale = 1200000;
+const dureeTotale = 1400000;
 
 // Définir le temps écoulé initial
 let tempsEcoule = 0;

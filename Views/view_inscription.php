@@ -28,12 +28,9 @@
             <div class="ButtonSubmitDiv">
                 <button type="submit" id="submit" name="submit" class="btnSubmit">INSCRIPTION</button>
             </div>
-
         </form>
-
         <div class="ButtonSubmitDiv">
             <button type="" id="sign_up" class="btnSubmit"><a href="?controller=connexion&action=afficher_connexion">Retour à la connexion ? </a></button>
         </div>
-
     </main>
 </div>

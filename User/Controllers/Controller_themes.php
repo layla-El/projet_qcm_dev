@@ -12,7 +12,18 @@ class Controller_themes extends Controller
     public function action_afficher_themes()  // afficher la page d'acceuil des themes
     {
         $m = Model::get_model();
-        $data = ["themes" => $m->get_afficher_themes()];
+        $themes = $m->get_afficher_themes();
+        $id_utilisateur = $_SESSION['id_utilisateur'];
+
+        // Ajouter l'information si l'utilisateur a complété tous les niveaux pour chaque thème
+        foreach ($themes as $theme) {
+            $theme->completed = $m->has_completed_all_levels($theme->id_theme, $id_utilisateur);
+        }
+
+        $data = [
+            "themes" => $themes
+        ];
+
         $this->render("themes", $data);
     }
 

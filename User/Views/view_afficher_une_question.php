@@ -3,16 +3,14 @@
 
 <!-- Affichage de la question actuelle -->
 
+<div class="containerQuestions">
     <div id="chargingBar">
         <div id="chargingMove"></div>
     </div>
-
-
-    <div class="containerQuestions">
     <main id="mainQuestions">
-    <?php foreach ($libelle_theme as $t) : ?>
-             <h1><?= $t->libelle_theme?></h1>
-         <?php endforeach; ?>
+
+        <h3><?= htmlentities($libelle_theme->libelle_theme) ?></h3>
+
         <?php foreach ($libelle_question as $l) : ?>
             <h3><?= htmlentities($l->libelle_question) ?></h3>
         <?php endforeach; ?>
@@ -35,4 +33,3 @@
 
     </main>
 </div>
-

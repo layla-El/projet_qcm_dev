@@ -10,12 +10,18 @@
 <body>
     <?php
     session_start();
+
+
     require_once 'Controllers/Controller.php';
     require_once 'Models/Model.php';
     require_once 'Utils/header.php';
 
     $controllers = ["themes", "question", "reponse", "niveau", "profil", "score"];
     $controller_default = "themes";
+
+    if (!isset($_SESSION['id_utilisateur'])){
+        $nom_controller = $controller_default;
+    }
 
     if (isset($_GET['controller']) and in_array($_GET['controller'], $controllers)) {
         $nom_controller = $_GET['controller'];
@@ -32,8 +38,7 @@
     } else {
         exit("Error 404 : not found");
     }
-
-    require_once 'Utils/footer.php';
+        require_once 'Utils/footer.php';
     ?>
 </body>
 </html>
