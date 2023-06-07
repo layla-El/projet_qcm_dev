@@ -4,9 +4,11 @@
     --buttonGreen: rgb(7, 157, 7);
     --blueGreyBg: rgb(69, 69, 98);
     --blueGreyFooter: rgb(48, 48, 106);
+    --purple: rgb(134, 80, 188);
     --validateGrey: rgb(97, 97, 126);
     --purpleShade: rgb(93, 56, 130);
     --fadeGreen: rgba(26, 87, 37, 0.606);
+    --Yelow: rgb(243, 215, 3);
 
 }
 
@@ -247,7 +249,8 @@ input {
     color: var(--textColor);
 }
 
-#connexionForm {
+#connexionForm,
+#inscriptionForm {
     display: flex;
     flex-direction: column;
     align-items: center;

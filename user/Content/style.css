@@ -248,11 +248,33 @@ img {
 
 /* PROFIL */
 
-#mainProfil {
+/* #mainProfil {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+} */
+#mainProfil section {
+    padding: 15%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+
+}
+
+.theme {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(rgba(223, 182, 248, 0.211), rgba(59, 44, 103, 0.659));
+    border-radius: 10px;
+    margin-bottom: 30px;
+    width: 70vw;
+    max-width: 800px;
 }
 
 .imgProfil {
@@ -274,8 +296,10 @@ section {
     justify-content: center;
     align-items: center;
     border-radius: 15px;
-    width: 100px;
-    height: 30px;
+    min-width: 190px;
+    max-width: 190px;
+    height: 25px;
+    margin: 10px;
     background-color: var(--buttonGreen);
     border: none;
     color: var(--textColor);

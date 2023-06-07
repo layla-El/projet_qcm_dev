@@ -11,7 +11,6 @@ abstract class Controller
         if (!$this->is_authenticated() && $this->requires_authentication()) {
             // Redirigez l'utilisateur vers la page de connexion ou effectuez une action appropriée
             header('Location:/php/projet_qcm_php/qcm_dev/projet_qcm_dev/');
-
             exit(); // Arrête l'exécution du script après la redirection
         }
 

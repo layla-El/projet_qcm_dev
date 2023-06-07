@@ -7,7 +7,7 @@
 
         <h1> Inscription</h1>
 
-        <form id="connexionForm" action="?controller=inscription&action=traitement_inscription" method="post">
+        <form id="inscriptionForm" action="?controller=inscription&action=traitement_inscription" method="post">
 
             <div class="choix">
                 <input type="text" id="inom" name="nom" placeholder="Nom" required />
