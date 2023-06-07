@@ -144,6 +144,7 @@ class Model
     // }
     public function get_last_scores($id_utilisateur)
     {
+        
         $r = $this->bd->prepare(" 
         SELECT c.id_theme, c.score, c.niveau
 FROM choix c

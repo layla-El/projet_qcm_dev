@@ -58,8 +58,8 @@
                     </div>
                 <?php endif; ?>
             <?php endforeach; ?>
-        </section> 
-        
+        </section>
+
 
 
 

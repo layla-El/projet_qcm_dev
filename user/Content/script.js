@@ -1,57 +1,32 @@
-// // gérer la couleur de la réponse selectionnée
+// Récupérer les éléments HTML de la barre de progression
+const progressBar = document.getElementById('chargingMove');
+const progressBarContainer = document.getElementById('chargingBar');
 
+// Définir la durée totale en millisecondes
+const dureeTotale = 1200000;
 
-// // Récupération de tous les éléments avec la classe "reponse"
-// let reponses = document.querySelectorAll(".choix");
+// Définir le temps écoulé initial
+let tempsEcoule = 0;
 
-// // Attacher un gestionnaire d'événements à chaque élément .choix
-// for (let reponse of reponses) {
-//     reponse.addEventListener("click", toggleSelection);
-// }
+// Mettre à jour la barre de progression
+function mettreAJourBarreProgression() {
+    // Calculer le pourcentage de progression
+    const pourcentage = (tempsEcoule / dureeTotale) * 100;
 
-// // Fonction pour basculer la sélection de la réponse
-// function toggleSelection(e) {
-//     e.stopPropagation();
-//     console.log(this); // Élément .choix sur lequel le clic a été effectué
-//     const choix = this.querySelector(".reponse");
-//     console.log(choix.dataset.type, choix.dataset.id);
-//     this.classList.toggle("selected");
-// }
+    // Mettre à jour la largeur de la barre de progression en fonction du pourcentage
+    progressBar.style.width = pourcentage + '%';
 
+    // Vérifier si le temps écoulé a atteint la durée totale
+    if (tempsEcoule >= dureeTotale) {
+        // Arrêter la progression
+        clearInterval(timer);
+        // Faire quelque chose lorsque le temps est écoulé (par exemple, afficher un message)
+        document.getElementById('formChoix').submit();
+    }
 
+    // Augmenter le temps écoulé
+    tempsEcoule += 500; // Exemple : augmenter de 1 seconde (1000 millisecondes)
+}
 
-
-// // SCRIPT POUR PASSER A LA QUESTION SUIVANTE 
-
-// let formContainer = document.querySelector('#mainQuestions');
-// // uniquement exécuté si forumulaire avec id mainquestions
-// if (formContainer) {
-//     // Ajout d'un écouteur d'événement "submit" au formulaire
-//     formContainer.addEventListener('submit', function (event) {
-
-//         // Empêcher le comportement par défaut du formulaire (rechargement de la page)
-//         event.preventDefault();
-
-//         const params = new URLSearchParams(window.location.search)
-//         const id_theme = params.get("id_theme")
-//         const niveau = params.get("niveau")
-//         let questionIndex = parseInt(params.get("question"))
-
-//         if(!questionIndex) questionIndex = 1
-
-//         // sélectionner toutes les réponses
-
-//         // récupérer le data type et l'id de la réponse
-
-//         // pour passer à la question suivante :
-
-//         // 1. Incrémenter l'indice de la question pour passer à la question suivante
-
-//         // 2. Redirection vers la nouvelle URL avec les paramètres mis à jour
-//         let redirectUrl = `?controller=question&action=question&id_theme=${id_theme}&niveau=${niveau}&question=${questionIndex + 1}`;
-//         window.location.href = redirectUrl;
-//     });
-// }
-
-
-
+// Mettre à jour la barre de progression toutes les secondes
+const timer = setInterval(mettreAJourBarreProgression, 10); // Exemple : mettre à jour toutes les 1 seconde (1000 millisecondes)

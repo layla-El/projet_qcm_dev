@@ -6,14 +6,7 @@ class Controller_profil extends Controller
         $this->action_afficher_profil();
     }
 
-    // public function action_afficher_profil()
-    // {
-    //     $m = Model::get_model();
-    //     $id_utilisateur = $_SESSION['id_utilisateur'];
-    //     $lastScore = $m->get_last_score($id_utilisateur);
-
-    //     $this->render("profil", ['lastScore' => $lastScore]);
-    // }
+    //l'action pour afficher le profil avec les scores fait par l'utilisateur
 
     public function action_afficher_profil()
     {
