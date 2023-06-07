@@ -351,11 +351,16 @@ img {
     padding-bottom: 50%;
 }
 
-#mainProfil>div {
+.theme {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background: linear-gradient(rgba(223, 182, 248, 0.211), rgba(59, 44, 103, 0.659));
+    border-radius: 10px;
+    margin-bottom: 30px;
+    width: 70vw;
+    max-width: 800px;
 }
 
 .imgProfil {
@@ -372,11 +377,17 @@ img {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 10%;
+ 
 }
 
 #mainProfil section {
-    padding: 15%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+
 }
 
 .btnProfil {
@@ -384,9 +395,10 @@ img {
     justify-content: center;
     align-items: center;
     border-radius: 15px;
-    width: 50vw;
-    max-width: 200px;
-    height: 20px;
+    min-width: 190px;
+    max-width: 190px;
+    height: 25px;
+    margin: 10px;
     background-color: var(--buttonGreen);
     border: none;
     color: var(--textColor);

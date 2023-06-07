@@ -13,7 +13,7 @@
         $themes = ["HTML", "CSS", "JS", "PHP"];
         for ($i = 0; $i < count($themes); $i++) : ?>
 
-            <div class="theme-card">
+            <div class="theme">
 
                 <h1><?= $themes[$i]; ?></h1>
 
@@ -21,12 +21,12 @@
                     <?php foreach ($lastScores as $score) : ?>
                         <?php if ($score['id_theme'] == ($i + 1)) : ?>
 
-                            <div class="score-container">
+                            <div class="NivScore">
                                 <div class="btnProfil">
                                     <span class="level"><?= $score['niveau']; ?></span>
                                 </div>
                                 <div class="score">
-                                    Score: <span class="score-value"><?= $score['score']; ?></span>
+                                    <span class="score-value"><?= $score['score'] . "/10"; ?></span>
                                 </div>
                             </div>
 

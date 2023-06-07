@@ -6,6 +6,7 @@
     <main>
         
         <h1>Connexion</h1>
+        
         <form id="connexionForm" action="?controller=connexion&action=traitement_connexion" method="post">
 
             <div class="choix">

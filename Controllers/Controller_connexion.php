@@ -19,6 +19,7 @@ class Controller_connexion extends Controller
     public function action_traitement_connexion()
     {
         $m = Model::get_model();
+        
         if (isset($_POST['submit'])) {
             $user = $m->get_traitement_connexion();
             

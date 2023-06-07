@@ -6,7 +6,7 @@
 
         <h1> Inscription</h1>
 
-        <form id="connexionForm" action="?controller=inscription&action=traitement_inscription" method="post">
+        <form id="inscriptionForm" action="?controller=inscription&action=traitement_inscription" method="post">
 
             <div class="choix">
                 <label for="inom" class="visuallyhidden">Nom</label>
@@ -28,6 +28,11 @@
                 <input type="password" id="ipassword" name="password" placeholder="Mot de passe" pattern=".{8,}" title="Le mot de passe doit contenir au moins 8 caractères." required />
             </div>
 
+            <div class="choix">
+                <label for="iconfirm_password" class="visuallyhidden">Confirmer le mot de passe</label>
+                <input type="password" id="iconfirm_password" name="confirm_password" placeholder="Confirmer le mot de passe" pattern=".{8,}" title="Le mot de passe doit contenir au moins 8 caractères." required />
+            </div>
+
             <div class="ButtonSubmitDiv">
                 <button type="submit" id="submit" name="submit" class="btnSubmit">INSCRIPTION</button>
             </div>
@@ -45,7 +50,7 @@
 
 </div>
 
-    <!-- L'utilisation de l'élément <label> en conjonction avec <input> n'est pas obligatoire du point de vue du code, 
+<!-- L'utilisation de l'élément <label> en conjonction avec <input> n'est pas obligatoire du point de vue du code, 
     mais elle est considérée comme une bonne pratique pour plusieurs raisons :
 
      1 - Accessibilité : Les lecteurs d'écran utilisent les éléments <label> pour informer les utilisateurs non voyants
