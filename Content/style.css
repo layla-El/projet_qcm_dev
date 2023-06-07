@@ -88,6 +88,37 @@ input {
 
 
 
+/* LABELS */ 
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+/* border: 0; supprime toute bordure de l'élément. C'est utile pour s'assurer que la bordure ne contribue pas à l'espace
+ occupé par l'élément sur la page. */
+ /* clip: rect(0 0 0 0); est une ancienne propriété CSS qui est utilisée pour couper un élément absolument positionné.
+  Dans ce cas, il coupe l'élément en une forme rectangulaire avec une hauteur et une largeur de 0, ce qui rend l'élément
+ invisible. */
+ /* height: 1px; définit la hauteur de l'élément à 1px. Comme l'élément est coupé à une hauteur de 0, cette propriété
+  n'a pas d'effet visuel, mais elle permet de s'assurer que l'élément n'est pas complètement supprimé du flux de la page. */
+  /* margin: -1px; donne à l'élément une marge négative de 1px sur tous les côtés. Cela déplace l'élément hors de l'écran,
+   le rendant invisible. */
+/* overflow: hidden; est utilisé pour s'assurer que tout contenu supplémentaire qui dépasse les dimensions de l'élément
+ (dans ce cas, 1px par 1px) est caché et n'apparaît pas sur la page. */
+ /* padding: 0; supprime tout l'espace de remplissage autour du contenu de l'élément. Comme pour la propriété border, 
+ cela sert à s'assurer que le rembourrage ne contribue pas à l'espace occupé par l'élément sur la page. */
+ /* position: absolute; positionne l'élément de manière absolue par rapport à son conteneur le plus proche avec une 
+ position non statique, ou, s'il n'y en a pas, par rapport au document lui-même. Cela signifie que l'élément est retiré 
+ du flux normal du document et n'affecte pas la position des autres éléments. */
+ /* width: 1px; définit la largeur de l'élément à 1px. Comme pour la hauteur, cette propriété n'a pas d'effet visuel 
+ en raison de la propriété clip, mais elle assure que l'élément n'est pas complètement supprimé du flux de la page. */
+
 
 
 /* HEADER */

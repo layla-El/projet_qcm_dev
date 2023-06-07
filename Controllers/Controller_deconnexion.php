@@ -14,7 +14,7 @@ class Controller_deconnexion extends Controller
 
     public function action_deconnexion()
     {
-        session_start();
+        // session_start();
         session_destroy();
         header('Location: index.php');
     }

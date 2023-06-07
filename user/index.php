@@ -18,6 +18,10 @@
     $controllers = ["themes", "question", "reponse", "niveau", "profil", "score"];
     $controller_default = "themes";
 
+    if (!isset($_SESSION['id_utilisateur'])){
+        $nom_controller = $controller_default;
+    }
+
     if (isset($_GET['controller']) and in_array($_GET['controller'], $controllers)) {
         $nom_controller = $_GET['controller'];
     } else {
